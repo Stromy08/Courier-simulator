@@ -20,13 +20,22 @@ public class car1 : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            speed = Mathf.Min(speed + acceleration * Time.deltaTime, maxSpeed);
+            if (speed <= -10)
+                {   
+                    deceleration = (float)(speed * -0.02);
+                    speed = Mathf.Min(speed + acceleration * deceleration * Time.deltaTime, maxSpeed);
+                }      
+            else if (speed >= -10)
+            {
+                speed = Mathf.Min(speed + acceleration * Time.deltaTime, maxSpeed);
+            }
         }
+
         else if (Input.GetKey(KeyCode.S))
         {   
             if (speed >= 10)
             {   
-                deceleration = (float)(speed * 0.1);
+                deceleration = (float)(speed * 0.02);
                 speed = Mathf.Max(speed - acceleration * deceleration * Time.deltaTime, -maxSpeed);
             }
             else if (speed <= 10)
