@@ -22,7 +22,7 @@ public class car1 : MonoBehaviour
         {
             if (speed <= -10)
                 {   
-                    deceleration = (float)(speed * -0.02);
+                    deceleration = (float)(speed * -0.08);
                     speed = Mathf.Min(speed + acceleration * deceleration * Time.deltaTime, maxSpeed);
                 }      
             else if (speed >= -10)
@@ -35,7 +35,7 @@ public class car1 : MonoBehaviour
         {   
             if (speed >= 10)
             {   
-                deceleration = (float)(speed * 0.02);
+                deceleration = (float)(speed * 0.08);
                 speed = Mathf.Max(speed - acceleration * deceleration * Time.deltaTime, -maxSpeed);
             }
             else if (speed <= 10)
