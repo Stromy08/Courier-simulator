@@ -8,3 +8,6 @@ ChangeLog:
 0.0.1.2
     stopped car from goin infinitely fast and crashing the game when holding "w" whilst moving backward
     fixed car rotation
+
+0.0.1.3
+    fixed car deceleration speed
