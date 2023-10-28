@@ -1,5 +1,6 @@
 # Courier-simulator
- 
+ discord:
+ https://discord.gg/kGtPvNgXVu
  ## planned list of features:
     unlockable vehicles, <br>
     level up parcel priority and reward for delivery, <br>
