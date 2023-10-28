@@ -27,11 +27,11 @@ public class car1 : MonoBehaviour
             if (speed >= 1)
             {
                 rotation_speed = speed * 0.2f;
-                transform.Rotate(0, rotationAmount * rotationSpeed * speed * 1  * Time.deltaTime, 0);
+                transform.Rotate(0, rotationAmount * rotationSpeed * speed * Time.deltaTime, 0);
             }
             else if (speed <= -1)
             {
-                transform.Rotate(0, rotationAmount * rotationSpeed * speed * -1 * Time.deltaTime, 0);
+                transform.Rotate(0, rotationAmount * rotationSpeed * speed * Time.deltaTime, 0);
             }
         }
         else if (Input.GetKey(KeyCode.D))
@@ -44,7 +44,7 @@ public class car1 : MonoBehaviour
             else if (speed <= -1)
             {   
                 
-                transform.Rotate(0, rotationAmount * rotationSpeed * speed * -1 * Time.deltaTime, 0);
+                transform.Rotate(0, rotationAmount * rotationSpeed * speed * Time.deltaTime, 0);
             }
         }
         else

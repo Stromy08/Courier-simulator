@@ -15,6 +15,16 @@ ChangeLog:
 0.0.1.5
     •added steering
     •added color to car
-    ERRORS:
+    ISSUES:
         •cars steering radius isn't consistent
-    
+0.0.1.6
+    •added temporary assets
+    •added a potential terrain heightmap
+    •fixed steering in reverse
+    •added temporary city
+
+    •added terrain toolbox addon to unity
+
+    ISSUES:
+        •cars steering radius isn't consistent
+        •map currently not working
