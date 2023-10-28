@@ -2,12 +2,19 @@ ChangeLog:
 
 
 0.0.1.1
-    added car and land
-    made car go sideways
+    •added car and land
+    •made car go sideways
 
 0.0.1.2
-    stopped car from goin infinitely fast and crashing the game when holding "w" whilst moving backward
-    fixed car rotation
+    •stopped car from goin infinitely fast and crashing the game when holding "w" whilst moving backward
+    •fixed car rotation
 
-0.0.1.3
-    fixed car deceleration speed
+0.0.1.4
+    •fixed car deceleration speed
+
+0.0.1.5
+    •added steering
+    •added color to car
+    ERRORS:
+        •cars steering radius isn't consistent
+    

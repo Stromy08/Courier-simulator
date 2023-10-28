@@ -477,6 +477,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: b7c209cf2059e5e4294f14889bed250e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0e06de5443aca846be7843909bf5cda, type: 2}
     - target: {fileID: -2577548232221058511, guid: b7c209cf2059e5e4294f14889bed250e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.62438965
@@ -513,6 +517,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: car1
       objectReference: {fileID: 0}
+    - target: {fileID: 7202271454713460447, guid: b7c209cf2059e5e4294f14889bed250e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b7ed0f7306b23046adfa4a2eef97fd9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -522,13 +530,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b7c209cf2059e5e4294f14889bed250e, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1489606518}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b7c209cf2059e5e4294f14889bed250e, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1489606517}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b7c209cf2059e5e4294f14889bed250e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1489606516}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b7c209cf2059e5e4294f14889bed250e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1489606520}
   m_SourcePrefab: {fileID: 100100000, guid: b7c209cf2059e5e4294f14889bed250e, type: 3}
 --- !u!1 &1489606515 stripped
 GameObject:
@@ -583,7 +591,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &1489606518
+--- !u!4 &1489606519 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b7c209cf2059e5e4294f14889bed250e, type: 3}
+  m_PrefabInstance: {fileID: 1112601686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1489606520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -595,15 +608,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5aabdfc5e566b946847150c4cea9c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 0
   maxSpeed: 500
-  acceleration: 50
-  rotationSpeed: 100
---- !u!4 &1489606519 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b7c209cf2059e5e4294f14889bed250e, type: 3}
-  m_PrefabInstance: {fileID: 1112601686}
-  m_PrefabAsset: {fileID: 0}
+  acceleration: 100
+  rotationSpeed: 0.2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
