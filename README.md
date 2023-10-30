@@ -8,8 +8,10 @@
     unlockable regions<br>
  ## sneak peak:
   https://youtu.be/rKYn-1XGjJ4
-  ### Steps:
+
+  ### To Do:
      1. add a car and player<br>
+     2. make a system to recieve tasks
 
 
  ## tools:
