@@ -39,3 +39,12 @@ ChangeLog:
         • road collider doesnt match the shape of the road
         • car's steering isn't consistent
         • speedometer texture is outdated
+
+
+0.0.1.7.2
+    •added a temporary parcel transport system
+
+    ISSUES:
+        • road collider doesnt match the shape of the road
+        • car's steering isn't consistent
+        • speedometer texture is outdated
