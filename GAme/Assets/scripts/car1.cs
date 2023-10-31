@@ -6,7 +6,7 @@ public class car1 : MonoBehaviour
 {
     [SerializeField] Image speedometer;
     [SerializeField] TMP_Text speedText;
-    public float speed = 10.0f;
+    public float carSpeed = 10.0f;
     public float maxSpeed = 200.0f;
     public float acceleration = 10.0f;
     public float rotationSpeed = 100.0f;
@@ -25,34 +25,34 @@ public class car1 : MonoBehaviour
     private void Update()
     {
 
-        float fillPercent = speed / 1200f;
+        float fillPercent = carSpeed / 1200f;
         speedometer.fillAmount = fillPercent;
-        speedText.text = ((int)speed / 5).ToString() + " km/h";
+        speedText.text = ((int)carSpeed / 5).ToString() + " km/h";
 
         if (Input.GetKey(KeyCode.A))
         {
             rotationAmount = -1;
-            if (speed >= 1)
+            if (carSpeed >= 1)
             {
-                rotation_speed = speed * 0.2f;
-                transform.Rotate(0, rotationAmount * rotationSpeed * speed * Time.deltaTime, 0);
+                rotation_speed = carSpeed * 0.2f;
+                transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
             }
-            else if (speed <= -1)
+            else if (carSpeed <= -1)
             {
-                transform.Rotate(0, rotationAmount * rotationSpeed * speed * Time.deltaTime, 0);
+                transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
             }
         }
         else if (Input.GetKey(KeyCode.D))
         {
             rotationAmount = 1;
-            if (speed >= 1)
+            if (carSpeed >= 1)
             {
-                transform.Rotate(0, rotationAmount * rotationSpeed * speed * Time.deltaTime, 0);
+                transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
             }
-            else if (speed <= -1)
+            else if (carSpeed <= -1)
             {   
                 
-                transform.Rotate(0, rotationAmount * rotationSpeed * speed * Time.deltaTime, 0);
+                transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
             }
         }
         else
@@ -62,41 +62,41 @@ public class car1 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            if (speed <= -10)
+            if (carSpeed <= -10)
                 {   
-                    deceleration = (float)(speed * -0.08);
-                    speed = Mathf.Min(speed + acceleration * deceleration * Time.deltaTime, maxSpeed);
+                    deceleration = (float)(carSpeed * -0.08);
+                    carSpeed = Mathf.Min(carSpeed + acceleration * deceleration * Time.deltaTime, maxSpeed);
                 }      
-            else if (speed >= -10)
+            else if (carSpeed >= -10)
             {
-                speed = Mathf.Min(speed + acceleration * Time.deltaTime, maxSpeed);
+                carSpeed = Mathf.Min(carSpeed + acceleration * Time.deltaTime, maxSpeed);
                 transform.Rotate(0, rotationAmount * rotationSpeed, 0);
             }
         }
 
         else if (Input.GetKey(KeyCode.S))
         {   
-            if (speed >= 10)
+            if (carSpeed >= 10)
             {   
-                deceleration = (float)(speed * 0.08);
-                speed = Mathf.Max(speed - acceleration * deceleration * Time.deltaTime, -maxSpeed);
+                deceleration = (float)(carSpeed * 0.08);
+                carSpeed = Mathf.Max(carSpeed - acceleration * deceleration * Time.deltaTime, -maxSpeed);
             }
-            else if (speed <= 10)
+            else if (carSpeed <= 10)
             {
-                speed = Mathf.Max(speed - acceleration * Time.deltaTime, -maxSpeed);
+                carSpeed = Mathf.Max(carSpeed - acceleration * Time.deltaTime, -maxSpeed);
             }
 
         }
         else
         {
-            // Gradually reset speed to 0 when no keys are pressed
-            speed = Mathf.MoveTowards(speed, 0, acceleration * Time.deltaTime);
+            // Gradually reset carSpeed to 0 when no keys are pressed
+            carSpeed = Mathf.MoveTowards(carSpeed, 0, acceleration * Time.deltaTime);
         }
     }
 
     private void FixedUpdate()
     {
-        Vector3 move = transform.forward * speed * Time.deltaTime;
+        Vector3 move = transform.forward * carSpeed * Time.deltaTime;
         rb.velocity = move;
     }
 }
