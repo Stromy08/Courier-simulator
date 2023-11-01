@@ -1,42 +1,37 @@
 using UnityEngine;
-using System.Collections;
 
-public class camera : MonoBehaviour
+public class CameraControl : MonoBehaviour
 {
     public Transform target;
-    public float speed = 5f;
+    public float rotationSpeed = 2f;
     private float X, Y;
-    public float carSpeed;
     float cameraZoom;
-    [SerializeField] float speedMultiplier;
+    [SerializeField] float zoomSpeed = 4.0f; // Adjust the zoom speed as needed
 
     void Start()
     {
         X = transform.eulerAngles.y;
         Y = transform.eulerAngles.x;
+        cameraZoom = -6;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
     {
-        carSpeed = (GameObject.Find("car1").GetComponent<car1>().carSpeed);
-
-        cameraZoom = -6 * speedMultiplier;
-
+        // Control camera zoom with the scroll wheel
+        cameraZoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed * -1;
+        // Limit the minimum and maximum zoom levels if needed
+        cameraZoom = Mathf.Clamp(cameraZoom, -10f, -2f); // Adjust the min and max values as needed
     }
-
 
     void LateUpdate()
     {
-
-        
-
         if (target)
         {
-            if (Input.GetMouseButton(0))
-            {
-                X += Input.GetAxis("Mouse X") * speed;
-                Y -= Input.GetAxis("Mouse Y") * speed;
-            }
+            X += Input.GetAxis("Mouse X") * rotationSpeed;
+            Y -= Input.GetAxis("Mouse Y") * rotationSpeed;
 
             Quaternion rotation = Quaternion.Euler(Y, X, 0);
             transform.rotation = rotation;

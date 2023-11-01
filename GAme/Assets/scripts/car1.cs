@@ -25,9 +25,9 @@ public class car1 : MonoBehaviour
     private void Update()
     {
 
-        float fillPercent = carSpeed / 1200f;
+        float fillPercent = carSpeed / 2000f;
         speedometer.fillAmount = fillPercent;
-        speedText.text = ((int)carSpeed / 5).ToString() + " km/h";
+        speedText.text = ((int)carSpeed / 10).ToString() + " km/h";
 
         if (Input.GetKey(KeyCode.A))
         {

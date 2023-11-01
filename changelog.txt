@@ -79,3 +79,21 @@ ChangeLog:
         • no predetermined dropoff point (fix: make is so that it chooses a random
                                          dropoff point and the car has to go to that 
                                          one to get score)
+
+0.0.1.11
+    •added random house selection for parcel pickups.
+    •required parcel delivery to the selected house.
+    ISSUES:
+        • car's steering isn't consistent
+        • camera doesnt follow car's rotation
+
+0.0.1.12
+    •added more houses
+    •imporved street layout
+    •increased vehicle's speed
+    •fixed camera movement
+    •made mouse cursor hide during gameplay
+    •updated speedometer texture
+    ISSUES:
+        • car's steering isn't consistent
+        • camera doesnt follow car's rotation

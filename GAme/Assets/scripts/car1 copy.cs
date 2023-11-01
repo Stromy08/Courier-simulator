@@ -3,7 +3,7 @@ using UnityEngine;
 public class car11 : MonoBehaviour
 {
     public float speed = 10.0f;
-    public float maxSpeed = 200.0f;
+    public float maxSpeed = 1000.0f;
     public float acceleration = 10.0f;
     public float rotationSpeed = 100.0f;
     float deceleration;
