@@ -97,3 +97,11 @@ ChangeLog:
     ISSUES:
         • car's steering isn't consistent
         • camera doesnt follow car's rotation
+
+0.0.1.13
+    •added new roads
+    •added texture to terrain
+    •added more assets
+    ISSUES:
+        • car's steering isn't consistent
+        • camera doesnt follow car's rotation
