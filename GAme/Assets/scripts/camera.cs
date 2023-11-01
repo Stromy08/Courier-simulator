@@ -16,7 +16,13 @@ public class camera : MonoBehaviour
         Y = transform.eulerAngles.x;
     }
 
+    void Update()
+    {
+        carSpeed = (GameObject.Find("car1").GetComponent<car1>().carSpeed);
 
+        cameraZoom = -6 * speedMultiplier;
+
+    }
 
 
     void LateUpdate()
@@ -34,7 +40,7 @@ public class camera : MonoBehaviour
 
             Quaternion rotation = Quaternion.Euler(Y, X, 0);
             transform.rotation = rotation;
-            transform.position = rotation * new Vector3(0, 0, -6) + target.position;
+            transform.position = rotation * new Vector3(0, 0, cameraZoom) + target.position;
         }
     }
 }
