@@ -56,3 +56,26 @@ ChangeLog:
         • road collider doesnt match the shape of the road
         • car's steering isn't consistent
         • speedometer texture is outdated
+
+0.0.1.9
+    •added basic camera effects
+
+    ISSUES:
+        • road collider doesnt match the shape of the road
+        • car's steering isn't consistent
+        • speedometer texture is outdated
+        • car speed distance effect's speed is too fast
+
+0.0.1.10
+    •added basic gameplay
+    •added a pickup point and multiple dropoff points
+    •added a basic score
+    •added a score display in UI
+
+     ISSUES:
+        • car's steering isn't consistent
+        • speedometer texture is outdated
+        • car speed distance effect's speed is too fast
+        • no predetermined dropoff point (fix: make is so that it chooses a random
+                                         dropoff point and the car has to go to that 
+                                         one to get score)
