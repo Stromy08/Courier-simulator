@@ -8,7 +8,7 @@ INITIAL RELEASE:
 • add a penalty system for a poor delivery.
 • make packages as rigidbody objects to allow them being stacked, thrown etc.
 • add npc traffic
-•city map with unloackable regions
+• city map with unloackable regions
 
 
 
@@ -31,10 +31,6 @@ POTENTIAL UPDATES:
 
 
 TO DO:
-•add pause menu
-
-
-
 
 
 IDEAS:
