@@ -29,3 +29,6 @@ LATER UPDATES:
 
 POTENTIAL UPDATES:
 •revamp the assets/graphics/style to a reasistic style
+
+TO DO:
+•add pause menu
