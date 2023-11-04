@@ -105,3 +105,22 @@ ChangeLog:
     ISSUES:
         • car's steering isn't consistent
         • camera doesnt follow car's rotation
+
+0.0.1.14 
+    •added store gui
+    •fixed missmatch in road tiles at spawn
+    •add pausing
+    •added pause menu
+    •added daylight cycle
+    •improved building allignment
+    •added seperate post office building
+    •added more buildings to town
+
+    ISSUES:
+        • car's steering isn't consistent
+        • car falls too slowly
+        • car needs to be fully changed
+        • camera doesnt follow car's rotation
+        • new objects dont have a hitbox
+        • car flips when encountering a curb
+        • no purchaseable items in store

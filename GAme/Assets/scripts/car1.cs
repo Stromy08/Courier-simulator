@@ -13,6 +13,7 @@ public class car1 : MonoBehaviour
     float deceleration;
     float rotationAmount;
     float rotation_speed;
+    public bool paused = false;
 
     private Rigidbody rb;
     private Vector3 inputVector;
@@ -29,35 +30,37 @@ public class car1 : MonoBehaviour
         speedometer.fillAmount = fillPercent;
         speedText.text = ((int)carSpeed / 10).ToString() + " km/h";
 
-        if (Input.GetKey(KeyCode.A))
+        if (!paused)
         {
-            rotationAmount = -1;
-            if (carSpeed >= 1)
+            if (Input.GetKey(KeyCode.A))
             {
-                rotation_speed = carSpeed * 0.2f;
-                transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
+                rotationAmount = -1;
+                if (carSpeed >= 1)
+                {
+                    rotation_speed = carSpeed * 0.2f;
+                    transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
+                }
+                else if (carSpeed <= -1)
+                {
+                    transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
+                }
             }
-            else if (carSpeed <= -1)
+            else if (Input.GetKey(KeyCode.D))
             {
-                transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
+                rotationAmount = 1;
+                if (carSpeed >= 1)
+                {
+                    transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
+                }
+                else if (carSpeed <= -1)
+                {   
+                    transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
+                }
             }
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            rotationAmount = 1;
-            if (carSpeed >= 1)
+            else
             {
-                transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
+                rotationAmount = 0;
             }
-            else if (carSpeed <= -1)
-            {   
-                
-                transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
-            }
-        }
-        else
-        {
-            rotationAmount = 0;
         }
 
         if (Input.GetKey(KeyCode.W))

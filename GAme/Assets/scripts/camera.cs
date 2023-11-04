@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class CameraControl : MonoBehaviour
+public class camera : MonoBehaviour
 {
     public Transform target;
     public float rotationSpeed = 2f;
     private float X, Y;
     float cameraZoom;
-    [SerializeField] float zoomSpeed = 4.0f; // Adjust the zoom speed as needed
+    [SerializeField] float zoomSpeed = 4.0f;
+    public DeliveryManager deliveryManager;
+    public bool paused = false;
 
     void Start()
     {
@@ -20,15 +22,14 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
-        // Control camera zoom with the scroll wheel
-        cameraZoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed * -1;
-        // Limit the minimum and maximum zoom levels if needed
-        cameraZoom = Mathf.Clamp(cameraZoom, -10f, -2f); // Adjust the min and max values as needed
+        // control camera zoom with scroll wheel
+        cameraZoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed * -1; 
+        cameraZoom = Mathf.Clamp(cameraZoom, -10f, -2f); // min and max zoom values
     }
 
     void LateUpdate()
     {
-        if (target)
+        if (target && !paused)
         {
             X += Input.GetAxis("Mouse X") * rotationSpeed;
             Y -= Input.GetAxis("Mouse Y") * rotationSpeed;
@@ -37,5 +38,10 @@ public class CameraControl : MonoBehaviour
             transform.rotation = rotation;
             transform.position = rotation * new Vector3(0, 0, cameraZoom) + target.position;
         }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
+
 }
