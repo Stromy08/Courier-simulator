@@ -3,7 +3,8 @@
  https://discord.gg/kGtPvNgXVu
 
  ## planned list of features:
-   INITIAL RELEASE:
+    INITIAL RELEASE:
+    
       • A third person game where the player is a courier delivering packages to houses.
 
       • he is given tasks via a boss in a hq building.
