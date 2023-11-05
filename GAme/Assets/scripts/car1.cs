@@ -14,6 +14,7 @@ public class car1 : MonoBehaviour
     float rotationAmount;
     float rotation_speed;
     public bool paused = false;
+    public store storeScript;
 
     private Rigidbody rb;
     private Vector3 inputVector;
@@ -102,4 +103,24 @@ public class car1 : MonoBehaviour
         Vector3 move = transform.forward * carSpeed * Time.deltaTime;
         rb.velocity = move;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("store"))
+        {
+            storeScript.openShop();
+        }
+    }
+
+    public void maxSpeedPlusFive()
+    {
+        maxSpeed = maxSpeed + 50;
+    }
+
+    public void accelerationPlusOne()
+    {
+        acceleration = acceleration + 10;
+    }
+
+
 }

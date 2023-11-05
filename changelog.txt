@@ -124,3 +124,18 @@ ChangeLog:
         • new objects dont have a hitbox
         • car flips when encountering a curb
         • no purchaseable items in store
+
+0.0.1.15
+    •added working toggling between store's tabs
+    •added a couple purchaseable car upgrades
+    •fixed code organisation
+    •added exit button to store
+
+    ISSUES:
+        • car's steering isn't consistent
+        • car falls too slowly
+        • car needs to be fully changed
+        • camera doesnt follow car's rotation
+        • new objects dont have a hitbox
+        • car flips when encountering a curb
+        • if store is opened whils car is going forward and steering, the car keeps turning when "W" is held

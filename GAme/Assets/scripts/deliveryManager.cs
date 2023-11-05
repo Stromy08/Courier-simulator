@@ -17,12 +17,6 @@ public class DeliveryManager : MonoBehaviour
     public List<GameObject> dropoffZones;
     public List<GameObject> pickupZones;
     public List<GameObject> shops;
-    public GameObject shopUI;
-    public GameObject pauseUI;
-
-    public bool paused;
-    public car1 carScript;
-    public camera cameraScript;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +25,6 @@ public class DeliveryManager : MonoBehaviour
         carStatus = false;
         score = 0;
         UpdateUI();
-        shopUI.SetActive(false);
-        paused = false;
     }
 
     // Update is called once per frame
@@ -46,40 +38,10 @@ public class DeliveryManager : MonoBehaviour
         {
             deliveryStatus = "Idle";
         }
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            shopUI.SetActive(false);
-            paused = !paused;
-        }
+
         UpdateUI();
-        checkPause();
+
     }
-
-    void checkPause()
-    {
-        if (paused)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            Time.timeScale = 0;
-            pauseUI.SetActive(true);
-
-            cameraScript.paused = true;
-            carScript.paused = true;
-        }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-            Time.timeScale = 1;
-            pauseUI.SetActive(false);
-
-            cameraScript.paused = false;
-            carScript.paused = false;
-        }
-    }
-
-
 
     // Update the UI texts
     void UpdateUI()
@@ -92,11 +54,6 @@ public class DeliveryManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("store"))
-        {
-            shopUI.SetActive(true);
-            paused = true;
-        }
 
         if (other.gameObject.CompareTag("pickupZone"))
         {
@@ -124,4 +81,16 @@ public class DeliveryManager : MonoBehaviour
 
         UpdateUI();
     }
+
+
+
+    public void payScore()
+    {
+        if (score >= 1)
+        {
+            score = score - 1;
+        }
+
+    }
+
 }
