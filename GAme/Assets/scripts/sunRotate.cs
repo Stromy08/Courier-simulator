@@ -6,12 +6,7 @@ public class sunRotate : MonoBehaviour
 {
     [SerializeField] float sunRotationAmount;
     float sunRotation;
-
-    void Start()
-    {
-        
-    }
-
+    
     void Update()
     {
         sunRotation = sunRotationAmount * Time.deltaTime;
