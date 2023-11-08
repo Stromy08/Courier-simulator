@@ -6,121 +6,66 @@ public class car1 : MonoBehaviour
 {
     [SerializeField] Image speedometer;
     [SerializeField] TMP_Text speedText;
-    public float carSpeed = 10.0f;
-    public float maxSpeed = 200.0f;
-    public float acceleration = 10.0f;
-    public float rotationSpeed = 100.0f;
-    float deceleration;
-    float rotationAmount;
-    float rotation_speed;
+    public float maxSpeed = 50f;
+    public float acceleration = 10f;
+    public float rotationSpeed = 10f;
     public bool paused = false;
     public store storeScript;
 
     private Rigidbody rb;
-    private Vector3 inputVector;
+    private float inputVertical;
+    private float inputHorizontal;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.drag = 1f;
     }
 
     private void Update()
     {
-
-        float fillPercent = carSpeed / 2000f;
-        speedometer.fillAmount = fillPercent;
-        speedText.text = ((int)carSpeed / 10).ToString() + " km/h";
-
-        if (!paused)
-        {
-            if (Input.GetKey(KeyCode.A))
-            {
-                rotationAmount = -1;
-                if (carSpeed >= 1)
-                {
-                    rotation_speed = carSpeed * 0.2f;
-                    transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
-                }
-                else if (carSpeed <= -1)
-                {
-                    transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
-                }
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                rotationAmount = 1;
-                if (carSpeed >= 1)
-                {
-                    transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
-                }
-                else if (carSpeed <= -1)
-                {   
-                    transform.Rotate(0, rotationAmount * rotationSpeed * carSpeed * Time.deltaTime, 0);
-                }
-            }
-            else
-            {
-                rotationAmount = 0;
-            }
-        }
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            if (carSpeed <= -10)
-                {   
-                    deceleration = (float)(carSpeed * -0.08);
-                    carSpeed = Mathf.Min(carSpeed + acceleration * deceleration * Time.deltaTime, maxSpeed);
-                }      
-            else if (carSpeed >= -10)
-            {
-                carSpeed = Mathf.Min(carSpeed + acceleration * Time.deltaTime, maxSpeed);
-                transform.Rotate(0, rotationAmount * rotationSpeed, 0);
-            }
-        }
-
-        else if (Input.GetKey(KeyCode.S))
-        {   
-            if (carSpeed >= 10)
-            {   
-                deceleration = (float)(carSpeed * 0.08);
-                carSpeed = Mathf.Max(carSpeed - acceleration * deceleration * Time.deltaTime, -maxSpeed);
-            }
-            else if (carSpeed <= 10)
-            {
-                carSpeed = Mathf.Max(carSpeed - acceleration * Time.deltaTime, -maxSpeed);
-            }
-
-        }
-        else
-        {
-            // Gradually reset carSpeed to 0 when no keys are pressed
-            carSpeed = Mathf.MoveTowards(carSpeed, 0, acceleration * Time.deltaTime);
-        }
+        UpdateSpeedometer();
+        HandleInput();
     }
 
     private void FixedUpdate()
     {
-        Vector3 move = transform.forward * carSpeed * Time.deltaTime;
-        rb.velocity = move;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("store"))
+        if (!paused)
         {
-            storeScript.openShop();
+            MoveCar();
+            RotateCar();
         }
     }
 
-    public void maxSpeedPlusFive()
+    private void UpdateSpeedometer()
     {
-        maxSpeed = maxSpeed + 50;
+        float speed = rb.velocity.magnitude;
+        float fillPercent = speed / maxSpeed;
+        speedometer.fillAmount = fillPercent;
+        speedText.text = ((int)speed).ToString() + " km/h";
     }
 
-    public void accelerationPlusOne()
+    private void HandleInput()
     {
-        acceleration = acceleration + 10;
+        inputVertical = Input.GetAxis("Vertical");
+        inputHorizontal = Input.GetAxis("Horizontal");
     }
 
+    private void MoveCar()
+    {
+        if (rb.velocity.magnitude < maxSpeed)
+        {
+            Vector3 force = transform.forward * inputVertical * acceleration;
+            rb.AddForce(force, ForceMode.Acceleration);
+        }
+    }
 
+    private void RotateCar()
+    {
+        if (rb.velocity.magnitude > 1f)
+        {
+            Vector3 rotation = transform.up * inputHorizontal * rotationSpeed;
+            rb.AddTorque(rotation, ForceMode.VelocityChange);
+        }
+    }
 }
