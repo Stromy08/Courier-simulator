@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class parcelManger : MonoBehaviour
 {
-
    public List<GameObject> pickupPoints;
    public List<GameObject> dropoffPoints;
    public GameObject car;
@@ -18,14 +17,4 @@ public class parcelManger : MonoBehaviour
         pickupPoints = new List<GameObject>();
         dropoffPoints = new List<GameObject>();
     }
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }   
-        
-    
 }
