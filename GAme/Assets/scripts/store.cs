@@ -57,13 +57,13 @@ public class store : MonoBehaviour
 
     public void openShop()
     {
-        shopUI.SetActive(true);
         pauseScript.paused = true;
+        shopUI.SetActive(true);
     }
 
     public void closeShop()
     {
-        pauseScript.paused=false;
+        pauseScript.paused = false;
         shopUI.SetActive(false);
     }
 
