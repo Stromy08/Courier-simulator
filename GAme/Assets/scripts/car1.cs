@@ -9,7 +9,6 @@ public class car1 : MonoBehaviour
     public float maxSpeed = 50f;
     public float acceleration = 10f;
     public float rotationSpeed = 10f;
-    public bool paused = false;
     public store storeScript;
 
     private Rigidbody rb;
@@ -30,11 +29,8 @@ public class car1 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!paused)
-        {
-            MoveCar();
-            RotateCar();
-        }
+        MoveCar();
+        RotateCar();
     }
 
     private void UpdateSpeedometer()
