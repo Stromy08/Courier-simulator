@@ -24,7 +24,6 @@ public class DeliveryManager : MonoBehaviour
         // Initialize the delivery status and score
         carStatus = false;
         score = 0;
-        UpdateUI();
     }
 
     // Update is called once per frame
@@ -88,7 +87,7 @@ public class DeliveryManager : MonoBehaviour
     {
         if (score >= 1)
         {
-            score = score - 1;
+            score--;
         }
 
     }
