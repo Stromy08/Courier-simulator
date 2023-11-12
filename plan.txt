@@ -31,7 +31,7 @@ POTENTIAL UPDATES:
 
 
 TO DO:
-•fix scoring system
+•add sounds and player model
 
 IDEAS:
 •pets
