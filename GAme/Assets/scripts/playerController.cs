@@ -11,12 +11,13 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 3f;
     Vector3 velocity;
     public Transform cam;
-
-    public CharacterController controller; // Will hold the CharacterController component
+    public CharacterController controller;
+    private Animator animator; // Declare animator here
 
     void Start()
     {
-        controller = GetComponent<CharacterController>(); // Get the CharacterController component
+        controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>(); // Get the Animator component here
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -26,33 +27,33 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
-    
-        // Apply gravity
+
+        // Set animation parameters based on player's input
+        animator.SetBool("IsWalking", direction.magnitude >= 0.1f);
+
         if (controller.isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
-    
+
         if (Input.GetButtonDown("Jump") && controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            animator.SetTrigger("Jump");
         }
-    
+
         velocity.y += gravity * Time.deltaTime;
-    
-        // Apply horizontal movement
+
         if (direction.magnitude >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
-    
+
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDirection.normalized * speed * Time.deltaTime);
         }
-    
-        // Apply vertical movement
+
         controller.Move(velocity * Time.deltaTime);
     }
-
 }
