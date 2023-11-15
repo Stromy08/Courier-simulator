@@ -211,3 +211,6 @@ ChangeLog:
         • only a walking animation is avaible
         • walking animation doesnt loop
         • walking animation takes too long to stop
+
+0.0.1.19.2
+    •fixed animation transitions
