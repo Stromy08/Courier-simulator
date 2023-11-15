@@ -214,3 +214,21 @@ ChangeLog:
 
 0.0.1.19.2
     •fixed animation transitions
+
+0.0.1.20
+    •added idle animation
+    •added jump animation
+    •fixed animation transitions
+
+    ISSUES
+        • all of previous car issues but worse
+            (cars handing is unmanageble, car will fly into the sky when encountering an obstacle, car accelerates at an exponentiail rate
+            car's steering isnt consistent to a certain radius, instead it turns incredibly fast at hight speed, not fast enought at 
+            medium speeds and spins on the spot at low speeds)
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera doesnt follow car's rotation
+        • new objects dont have a hitbox
+        • if store is opened whilst car is going forward and steering, the car keeps turning when "W" is held
+        • camera clips through buildings
+        • some assets dont match up
