@@ -1,6 +1,12 @@
 # Courier-simulator
- discord:
+ ![Static Badge](https://img.shields.io/badge/version-0.0.1.21-red) <br>
+ ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/Stromy08/Courier-simulator?style=flat-square&color=orange)     ![GitHub forks](https://img.shields.io/github/forks/Stromy08/Courier-simulator?style=flat-square&color=purple)
+
+
+
+ ![Discord](https://img.shields.io/discord/1167922806617542777?label=members%20online&labelColor=blue&color=green) <br>
  https://discord.gg/kGtPvNgXVu
+
 
  ## planned list of features:
     INITIAL RELEASE:
