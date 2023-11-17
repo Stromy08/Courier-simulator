@@ -1,5 +1,5 @@
 # Courier-simulator
- ![Static Badge](https://img.shields.io/badge/version-0.0.1.21-red) <br>
+ ![Static Badge](https://img.shields.io/badge/version-0.0.1.21.2-red) <br>
  ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/Stromy08/Courier-simulator?style=flat-square&color=orange)     ![GitHub forks](https://img.shields.io/github/forks/Stromy08/Courier-simulator?style=flat-square&color=purple)
 
 

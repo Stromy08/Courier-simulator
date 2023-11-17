@@ -89,7 +89,7 @@ ChangeLog:
 
 0.0.1.12
     •added more houses
-    •imporved street layout
+    •improved street layout
     •increased vehicle's speed
     •fixed camera movement
     •made mouse cursor hide during gameplay
@@ -254,3 +254,8 @@ ChangeLog:
              i just need to add some more basic features to the car and then ill link them up.
              I probably dont have to though because i will be adding the player
              and changing more things so a lot of the car's features are irrelevant anyways)
+
+0.0.1.21.2
+    •added visual wheels to car
+    •made wheels turn with car
+    •improved skybox brightness temporarily
