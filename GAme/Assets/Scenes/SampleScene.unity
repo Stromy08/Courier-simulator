@@ -5704,7 +5704,7 @@ MonoBehaviour:
   speedometer: {fileID: 1259014611}
   speedText: {fileID: 1073751314}
   maxSpeed: 50
-  prefab: {fileID: 3152244429027244723, guid: 2af89acbe720b2744a49a009ba807dcd, type: 3}
+  playerPrefab: {fileID: 3152244429027244723, guid: 2af89acbe720b2744a49a009ba807dcd, type: 3}
 --- !u!1001 &572909389
 PrefabInstance:
   m_ObjectHideFlags: 0

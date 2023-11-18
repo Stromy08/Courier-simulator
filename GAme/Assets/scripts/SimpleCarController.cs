@@ -5,12 +5,13 @@ using TMPro;
 using UnityEngine.UI;
 
 public class SimpleCarController : MonoBehaviour {
-   public List<AxleInfo> axleInfos;
-   public float maxMotorTorque;
-   public float maxSteeringAngle;
-   public Image speedometer;
-   public TMP_Text speedText;
-   public float maxSpeed = 50f;
+    public List<AxleInfo> axleInfos;
+    public float maxMotorTorque;
+    public float maxSteeringAngle;
+    public Image speedometer;
+    public TMP_Text speedText;
+    public float maxSpeed = 50f;
+     public GameObject playerPrefab;
 
    public void FixedUpdate()
    {
@@ -49,10 +50,14 @@ public class SimpleCarController : MonoBehaviour {
        visualWheel.transform.Rotate(0, 0, 90);
    }
 
-   void Update()
-   {
-       UpdateSpeedometer();
-   }
+  void Update()
+  {
+      if (Input.GetKeyDown(KeyCode.F))
+      {
+          Instantiate(playerPrefab);
+      }
+      UpdateSpeedometer();
+  }
 
    private void UpdateSpeedometer()
    {
