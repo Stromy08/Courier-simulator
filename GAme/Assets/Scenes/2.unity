@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &46206827 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2374757339085348873, guid: 2af89acbe720b2744a49a009ba807dcd, type: 3}
-  m_PrefabInstance: {fileID: 1232823262}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &271771799
 GameObject:
   m_ObjectHideFlags: 3
@@ -341,8 +336,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321272714}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13664462, y: 0.05242668, z: -0.0072419983, w: 0.98920536}
-  m_LocalPosition: {x: 20.205969, y: 2.51, z: 24.72773}
+  m_LocalRotation: {x: 0.1023965, y: 0.6571058, z: -0.0907698, w: 0.7412745}
+  m_LocalPosition: {x: 119.96775, y: 2.5000057, z: 36.780777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -501,7 +496,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403756992}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.022128388, y: 0.05073342, z: -0.015070675, w: 0.99835336}
+  m_LocalRotation: {x: 0.016582206, y: 0.63588256, z: -0.18889281, w: 0.74812967}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -581,7 +576,7 @@ Transform:
   m_GameObject: {fileID: 417766842}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13290189, y: -0, z: -0, w: 0.9911292}
-  m_LocalPosition: {x: 20.205969, y: 2.51, z: 24.72773}
+  m_LocalPosition: {x: 119.96775, y: 2.5000057, z: 36.780777}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -608,8 +603,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 46206827}
-  m_Follow: {fileID: 46206827}
+  m_LookAt: {fileID: 1872889910}
+  m_Follow: {fileID: 1872889910}
   m_CommonLens: 1
   m_Lens:
     FieldOfView: 40
@@ -720,7 +715,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424411906}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.003965199, y: 0.050999157, z: -0.014145367, w: 0.9985907}
+  m_LocalRotation: {x: 0.002971381, y: 0.6392132, z: -0.17729518, w: 0.74830747}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -926,7 +921,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820431282}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.014151342, y: 0.051247377, z: -0.0132178385, w: 0.9984982}
+  m_LocalRotation: {x: -0.010604501, y: 0.64232445, z: -0.16566975, w: 0.7482382}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1107,7 +1102,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &1232823262
+--- !u!4 &1872889910 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2374757339085348873, guid: 2af89acbe720b2744a49a009ba807dcd, type: 3}
+  m_PrefabInstance: {fileID: 1946564106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1946564106
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1117,15 +1117,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2374757339085348873, guid: 2af89acbe720b2744a49a009ba807dcd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.02832
+      value: 127.69158
       objectReference: {fileID: 0}
     - target: {fileID: 2374757339085348873, guid: 2af89acbe720b2744a49a009ba807dcd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0.000005722046
       objectReference: {fileID: 0}
     - target: {fileID: 2374757339085348873, guid: 2af89acbe720b2744a49a009ba807dcd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 32.464146
+      value: 37.713955
       objectReference: {fileID: 0}
     - target: {fileID: 2374757339085348873, guid: 2af89acbe720b2744a49a009ba807dcd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1157,12 +1157,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3152244429027244723, guid: 2af89acbe720b2744a49a009ba807dcd, type: 3}
       propertyPath: m_Name
-      value: kurier@Walking
+      value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7337947582127658794, guid: 2af89acbe720b2744a49a009ba807dcd, type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 321272717}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1266,6 +1262,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 360376886}
   - {fileID: 2144069607}
-  - {fileID: 1232823262}
   - {fileID: 321272717}
   - {fileID: 417766843}
+  - {fileID: 1946564106}

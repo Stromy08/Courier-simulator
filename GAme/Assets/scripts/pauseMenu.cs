@@ -6,8 +6,7 @@ public class pauseMenu : MonoBehaviour
 {
     public bool paused;
     public GameObject pauseUI;
-    public car1 carScript;
-    public camera cameraScript;
+
 
     void Start()
     {
@@ -33,8 +32,6 @@ public class pauseMenu : MonoBehaviour
             Time.timeScale = 0;
             pauseUI.SetActive(true);
 
-            cameraScript.paused = true;
-            carScript.paused = true;
         }
         else
         {
@@ -43,8 +40,6 @@ public class pauseMenu : MonoBehaviour
             Time.timeScale = 1;
             pauseUI.SetActive(false);
 
-            cameraScript.paused = false;
-            carScript.paused = false;
         }
     }
 
