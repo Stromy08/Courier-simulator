@@ -1,12 +1,9 @@
 # Courier-simulator
- ![Static Badge](https://img.shields.io/badge/version-0.0.1.21.4-red) <br>
+ ![Static Badge](https://img.shields.io/badge/version-0.0.1.21.4-green?style=for-the-badge) <br>
  ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/Stromy08/Courier-simulator?style=flat-square&color=orange)     ![GitHub forks](https://img.shields.io/github/forks/Stromy08/Courier-simulator?style=flat-square&color=purple)
 
 
-
- ![Discord](https://img.shields.io/discord/1167922806617542777?label=members%20online&labelColor=blue&color=green) <br>
- https://discord.gg/kGtPvNgXVu
-
+ [![Discord](https://img.shields.io/discord/1167922806617542777.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/kGtPvNgXVu) <br>
 
  ## planned list of features:
     INITIAL RELEASE:
@@ -46,3 +43,13 @@
 
  ## tools:
   https://probabletrain.itch.io/city-generator
+
+
+## Contributors
+[<img alt="SoGreeno" src="https://github.com/sogreeno.png?size=120" width="120px"/>](https://github.com/sogreeno)
+[<img alt="Sch1zophren" src="https://github.com/Sch1zophren.png?size=120" width="120px"/>](https://github.com/Sch1zophren)
+[<img alt="dillmillnimble" src="https://github.com/dillmillnimble.png?size=120" width="120px"/>](https://github.com/dillmillnimble)
+
+
+
+ 
