@@ -1,47 +1,36 @@
+using Cinemachine;
 using UnityEngine;
 
-public class camera : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
-    public Transform target;
-    public float rotationSpeed = 2f;
-    private float X, Y;
-    float cameraZoom;
-    [SerializeField] float zoomSpeed = 4.0f;
-    public DeliveryManager deliveryManager;
-    public bool paused = false;
+    public CinemachineFreeLook freeLookCamera;
+    public Transform car;
+    public Transform player;
+    public SimpleCarController simpleCarController;
 
     void Start()
     {
-        X = transform.eulerAngles.y;
-        Y = transform.eulerAngles.x;
-        cameraZoom = -6;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // At the start of the game, the camera follows and looks at the car
+        freeLookCamera.Follow = car;
+        freeLookCamera.LookAt = car;
     }
 
     void Update()
     {
-        // control camera zoom with scroll wheel
-        cameraZoom -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed * -1; 
-        cameraZoom = Mathf.Clamp(cameraZoom, -10f, -2f); // min and max zoom values
-    }
-
-    void LateUpdate()
-    {
-        if (target && !paused)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            X += Input.GetAxis("Mouse X") * rotationSpeed;
-            Y -= Input.GetAxis("Mouse Y") * rotationSpeed;
-
-            Quaternion rotation = Quaternion.Euler(Y, X, 0);
-            transform.rotation = rotation;
-            transform.position = rotation * new Vector3(0, 0, cameraZoom) + target.position;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.None;
+            if (simpleCarController.isControlled)
+            {
+                // If 'F' is pressed and the car is controlled, make the camera follow and look at the player
+                freeLookCamera.Follow = player;
+                freeLookCamera.LookAt = player;
+            }
+            else
+            {
+                // If 'F' is pressed and the car is not controlled, make the camera follow and look at the car
+                freeLookCamera.Follow = car;
+                freeLookCamera.LookAt = car;
+            }
         }
     }
-
 }

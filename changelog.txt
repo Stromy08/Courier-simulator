@@ -141,7 +141,7 @@ ChangeLog:
         • if store is opened whilst car is going forward and steering, the car keeps turning when "W" is held
 
 0.0.1.16
-    •car gravity fixed
+    •fixed car's gravity
     •added headlights to car
     •fixed day/night cycle by making the night actually dark (on the surface)
     •added more roads and a tunnel
@@ -235,19 +235,23 @@ ChangeLog:
 
 0.0.1.21
     •added new car with better physics
-        •changes include (wheels colliders, more realistic gravity and better steering)
+        • changes include (wheels colliders, more realistic gravity and better steering)
 0.0.1.21.2
     •added visual wheels to car
     •increased skybox brightness temporarily
 0.0.1.21.3
     •fixed speeedometer 
-
 0.0.1.21.4
     •added instantiate player
+0.0.1.21.5
+    •fixed instantiate player model
+        • i have to figure out how to make the camera swap between the player and car and how to define objects in an instantiated prefab
 
         Quick fix car issues:
         • no model for car
         • shop doesnt see car (need to fix)
+        • add brakes/handbrake
+        • fix camera following
         (basically most objects dont detect the car, but thats a quick fix,
          i just need to add some more basic features to the car and then ill link them up.
          I probably dont have to though because i will be adding the player

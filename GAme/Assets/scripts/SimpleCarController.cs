@@ -11,7 +11,8 @@ public class SimpleCarController : MonoBehaviour {
     public Image speedometer;
     public TMP_Text speedText;
     public float maxSpeed = 50f;
-     public GameObject playerPrefab;
+    public GameObject playerPrefab;
+    public bool isControlled;
 
    public void FixedUpdate()
    {
@@ -26,6 +27,11 @@ public class SimpleCarController : MonoBehaviour {
            if (axleInfo.motor) {
                axleInfo.leftWheel.motorTorque = motor;
                axleInfo.rightWheel.motorTorque = motor;
+           }
+           if (Input.GetKey(KeyCode.Space) && axleInfo.handBrake) { //currently not working. might remove//
+                axleInfo.leftWheel.motorTorque = 0;
+                axleInfo.rightWheel.motorTorque = 0;
+                
            }
            ApplyLocalPositionToVisuals(axleInfo.leftWheel);
            ApplyLocalPositionToVisuals(axleInfo.rightWheel);
@@ -50,14 +56,18 @@ public class SimpleCarController : MonoBehaviour {
        visualWheel.transform.Rotate(0, 0, 90);
    }
 
-  void Update()
-  {
-      if (Input.GetKeyDown(KeyCode.F))
-      {
-          Instantiate(playerPrefab);
-      }
-      UpdateSpeedometer();
-  }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (!isControlled)
+            {
+                Instantiate(playerPrefab, transform.position, transform.rotation);
+                isControlled = true;
+            }
+        }
+        UpdateSpeedometer();
+    }
 
    private void UpdateSpeedometer()
    {
@@ -74,4 +84,5 @@ public class AxleInfo {
    public WheelCollider rightWheel;
    public bool motor; 
    public bool steering; 
+   public bool handBrake;
 }
