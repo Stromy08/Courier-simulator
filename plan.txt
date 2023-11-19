@@ -11,6 +11,14 @@ INITIAL RELEASE:
 • city map with unloackable regions
 
 
+PRIORITIES:
+•add proper brakes to car
+•fix camera
+•add proper third person character 
+•fix delivery system
+•fix map
+•add minimap
+•fix UI/gui
 
 
 LATER UPDATES:
