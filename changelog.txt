@@ -248,6 +248,9 @@ ChangeLog:
     •fixed instantiate player model
 0.0.1.21.6
     •fixed player camera following player
+0.0.1.21.7
+    •made player enter and exit car
+    •broke something
         Quick fix car issues:
         • no model for car
         • shop doesnt see car (need to fix)

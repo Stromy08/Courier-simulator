@@ -13,13 +13,13 @@ public class PlayerController : MonoBehaviour
     public Transform cam;
     public CharacterController controller;
     private Animator animator; // Declare animator here
+    public bool IsInCarHitbox;
+    public gameManager gameManager;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>(); // Get the Animator component here
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
@@ -57,6 +57,17 @@ public class PlayerController : MonoBehaviour
         }
 
         controller.Move(velocity * Time.deltaTime);
-        
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "car")
+        {
+            IsInCarHitbox = true;
+        }
+        else
+        {
+            IsInCarHitbox = false;
+        }
     }
 }
