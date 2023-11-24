@@ -17,6 +17,8 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        car = GameObject.FindGameObjectWithTag("car").transform;
         if (Input.GetKeyDown(KeyCode.F))
         {
             if (simpleCarController.isControlled)

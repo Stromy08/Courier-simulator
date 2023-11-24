@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>(); // Get the Animator component here
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
     
     void Update()
@@ -55,5 +57,6 @@ public class PlayerController : MonoBehaviour
         }
 
         controller.Move(velocity * Time.deltaTime);
+        
     }
 }
