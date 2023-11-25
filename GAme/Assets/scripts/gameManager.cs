@@ -21,15 +21,13 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(IsDriving);
         if (Input.GetKeyDown(KeyCode.F))
         {
-            CameraController.DefinePlayer();
+
             if (IsDriving)
             {
                 IsDriving = false;
                 simpleCarController.InstantiatePlayer();
-                CameraController.DefinePlayer();
                 DefinePlayer();
             }
             else
@@ -38,7 +36,7 @@ public class gameManager : MonoBehaviour
                 {
                     IsDriving = true;
                     Destroy(playerPrefab);
-                    CameraController.DefinePlayer();
+                    DefinePlayer();
                 }
             }
         }
@@ -47,5 +45,6 @@ public class gameManager : MonoBehaviour
     {
         playerPrefab = GameObject.FindGameObjectWithTag("Player");
         PlayerController = playerPrefab.GetComponent<PlayerController>();
+        CameraController.DefinePlayer();
     }
 }
