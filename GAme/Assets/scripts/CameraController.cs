@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public CinemachineFreeLook freeLookCamera;
-    public Transform car;
+    public Transform CameraAnchor;
     public Transform playerPrefab;
     public SimpleCarController simpleCarController;
     public gameManager gameManager;
@@ -22,8 +22,8 @@ public class CameraController : MonoBehaviour
     {
         if (gameManager.IsDriving)
         {
-            freeLookCamera.Follow = car;
-            freeLookCamera.LookAt = car;
+            freeLookCamera.Follow = CameraAnchor;
+            freeLookCamera.LookAt = CameraAnchor;
         }
         else
         {
@@ -35,6 +35,6 @@ public class CameraController : MonoBehaviour
     public void DefinePlayer()
     {
         playerPrefab = GameObject.FindGameObjectWithTag("Player").transform;
-        car = GameObject.FindGameObjectWithTag("car").transform;
+        CameraAnchor = GameObject.FindGameObjectWithTag("cameraAnchor").transform;
     }   
 }

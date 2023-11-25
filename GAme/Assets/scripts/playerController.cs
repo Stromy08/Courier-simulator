@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "car")
+        if (other.gameObject.tag == "InstantiatePlayer")
         {
             IsInCarHitbox = true;
         }

@@ -8,6 +8,8 @@ TagManager:
   - dropoffZone
   - car
   - store
+  - InstantiatePlayer
+  - cameraAnchor
   layers:
   - Default
   - TransparentFX

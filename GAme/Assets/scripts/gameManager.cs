@@ -9,11 +9,12 @@ public class gameManager : MonoBehaviour
     public SimpleCarController simpleCarController;
     public bool IsDriving;
     public GameObject playerPrefab;
+    public InstantiatePlayerScript instantiatePlayerScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        simpleCarController.InstantiatePlayer();
+        instantiatePlayerScript.InstantiatePlayer();
         IsDriving = false;
         DefinePlayer();
     }
@@ -27,7 +28,7 @@ public class gameManager : MonoBehaviour
             if (IsDriving)
             {
                 IsDriving = false;
-                simpleCarController.InstantiatePlayer();
+                instantiatePlayerScript.InstantiatePlayer();
                 DefinePlayer();
             }
             else

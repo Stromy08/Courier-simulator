@@ -11,7 +11,7 @@ public class SimpleCarController : MonoBehaviour {
     public Image speedometer;
     public TMP_Text speedText;
     public float maxSpeed = 50f;
-    public GameObject playerPrefab;
+
     public gameManager gameManager;
 
 
@@ -78,10 +78,6 @@ public class SimpleCarController : MonoBehaviour {
        speedText.text = ((int)speed).ToString() + " km/h";
    }
 
-    public void InstantiatePlayer()
-    {
-        Instantiate(playerPrefab, transform.position, transform.rotation);
-    }
 }
 
 [System.Serializable]
