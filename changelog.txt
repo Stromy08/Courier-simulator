@@ -236,6 +236,16 @@ ChangeLog:
 0.0.1.21
     •added new car with better physics
         • changes include (wheels colliders, more realistic gravity and better steering)
+            ISSUES
+                • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+                  and making it bright instead of dark at night
+                • camera doesnt follow car's rotation
+                • new objects dont have a hitbox
+                • if store is opened whilst car is going forward and steering, the car keeps turning when "W" is held
+                • camera clips through buildings
+                • some assets dont match up
+                • car doesnt decelerate naturally
+                • generally, a lot of small issues with the player
 0.0.1.21.2
     •added visual wheels to car
     •increased skybox brightness temporarily
@@ -245,26 +255,24 @@ ChangeLog:
     •added instantiate player
 0.0.1.21.5
     •fixed instantiate player model
-        • i have to figure out how to make the camera swap between the player and car and how to define objects in an instantiated prefab
+0.0.1.21.6
+    •fixed player camera following player
+0.0.1.21.7
+    •made player enter and exit car
+    •broke something
 
-        Quick fix car issues:
-        • no model for car
-        • shop doesnt see car (need to fix)
-        • add brakes/handbrake
-        • fix camera following
-        (basically most objects dont detect the car, but thats a quick fix,
-         i just need to add some more basic features to the car and then ill link them up.
-         I probably dont have to though because i will be adding the player
-         and changing more things so a lot of the car's features are irrelevant anyways)
 
+0.0.1.22
+    •added visual wheels to car
+    •fixed speedometer
+    •added player (he can now enter and exit the car)
+    •fixed camera (issues going all the way back to version 0.0.1.9)
+    •added skin to car
 
         ISSUES
         • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
           and making it bright instead of dark at night
-        • camera doesnt follow car's rotation
         • new objects dont have a hitbox
-        • if store is opened whilst car is going forward and steering, the car keeps turning when "W" is held
         • camera clips through buildings
         • some assets dont match up
-        • car doesnt decelerate naturally
-        • generally, a lot of small issues with the player
+        • car doesnt have brakes (handbrake, and normal brakes)
