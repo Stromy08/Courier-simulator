@@ -27,8 +27,6 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
-        Debug.Log(speed);
-
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
