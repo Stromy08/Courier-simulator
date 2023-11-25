@@ -36,9 +36,7 @@ public class SimpleCarController : MonoBehaviour {
                     axleInfo.leftWheel.motorTorque = motor;
                     axleInfo.rightWheel.motorTorque = motor;
                 }
-                if (Input.GetKey(KeyCode.Space) && axleInfo.handBrake) { //currently not working. might remove//
-                     axleInfo.leftWheel.motorTorque = 0;
-                     axleInfo.rightWheel.motorTorque = 0;
+                
                      
                 }
                 ApplyLocalPositionToVisuals(axleInfo.leftWheel);

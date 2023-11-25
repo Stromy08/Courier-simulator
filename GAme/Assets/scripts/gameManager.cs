@@ -10,10 +10,12 @@ public class gameManager : MonoBehaviour
     public bool IsDriving;
     public GameObject playerPrefab;
     public InstantiatePlayerScript instantiatePlayerScript;
+    public GameObject CarUI;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        CarUI.SetActive(false);
         instantiatePlayerScript.InstantiatePlayer();
         IsDriving = false;
         DefinePlayer();
@@ -27,6 +29,7 @@ public class gameManager : MonoBehaviour
 
             if (IsDriving)
             {
+                CarUI.SetActive(false);
                 IsDriving = false;
                 instantiatePlayerScript.InstantiatePlayer();
                 DefinePlayer();
@@ -38,6 +41,7 @@ public class gameManager : MonoBehaviour
                     IsDriving = true;
                     Destroy(playerPrefab);
                     DefinePlayer();
+                    CarUI.SetActive(true);
                 }
             }
         }

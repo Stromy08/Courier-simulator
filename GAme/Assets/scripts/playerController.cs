@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 6f;
+    public float speed = 4f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
     public float gravity = -9.81f;
@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator; // Declare animator here
     public bool IsInCarHitbox;
     public gameManager gameManager;
+    public GameObject FToEnterText;
 
     void Start()
     {
@@ -26,6 +27,8 @@ public class PlayerController : MonoBehaviour
     
     void Update()
     {
+        Debug.Log(speed);
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
@@ -59,15 +62,21 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "InstantiatePlayer")
         {
             IsInCarHitbox = true;
+            FToEnterText.SetActive(true);
         }
-        else
+
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "InstantiatePlayer")
         {
             IsInCarHitbox = false;
+            FToEnterText.SetActive(false);
         }
     }
 }
