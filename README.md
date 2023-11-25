@@ -1,5 +1,5 @@
 # Courier-simulator
- ![Static Badge](https://img.shields.io/badge/version-0.0.1.21.5-green?style=for-the-badge) <br>
+ ![Static Badge](https://img.shields.io/badge/version-0.0.1.22-green?style=for-the-badge) <br>
  ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/Stromy08/Courier-simulator?style=flat-square&color=orange)     ![GitHub forks](https://img.shields.io/github/forks/Stromy08/Courier-simulator?style=flat-square&color=purple)
 
 
@@ -32,17 +32,15 @@
   https://youtu.be/rKYn-1XGjJ4
 
   ### To Do:
-     1. add a car and player
-     3. add a better map
+     1. add a better map
      4. add npc traffic
-     5. add shops
-     6. add upgradeable car
-     7. add better gui's
-     8. add better system for recieveing tasks
+     3. add shops
+     5. add upgradeable car
+     6. add better gui's
+     7. add better system for recieveing tasks
 
 
- ## tools:
-  https://probabletrain.itch.io/city-generator
+
 
 
 ## Contributors

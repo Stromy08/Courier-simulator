@@ -11,31 +11,40 @@ public class SimpleCarController : MonoBehaviour {
     public Image speedometer;
     public TMP_Text speedText;
     public float maxSpeed = 50f;
-    public GameObject playerPrefab;
-    public bool isControlled;
+
+    public gameManager gameManager;
+
+
+    void Start()
+    {
+
+    }
 
    public void FixedUpdate()
    {
-       float motor = maxMotorTorque * Input.GetAxis("Vertical");
-       float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
-
-       foreach (AxleInfo axleInfo in axleInfos) {
-           if (axleInfo.steering) {
-               axleInfo.leftWheel.steerAngle = steering;
-               axleInfo.rightWheel.steerAngle = steering;
-           }
-           if (axleInfo.motor) {
-               axleInfo.leftWheel.motorTorque = motor;
-               axleInfo.rightWheel.motorTorque = motor;
-           }
-           if (Input.GetKey(KeyCode.Space) && axleInfo.handBrake) { //currently not working. might remove//
-                axleInfo.leftWheel.motorTorque = 0;
-                axleInfo.rightWheel.motorTorque = 0;
-                
-           }
-           ApplyLocalPositionToVisuals(axleInfo.leftWheel);
-           ApplyLocalPositionToVisuals(axleInfo.rightWheel);
-       }
+        if (gameManager.IsDriving)
+        {
+            float motor = maxMotorTorque * Input.GetAxis("Vertical");
+            float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+            
+            foreach (AxleInfo axleInfo in axleInfos) {
+                if (axleInfo.steering) {
+                    axleInfo.leftWheel.steerAngle = steering;
+                    axleInfo.rightWheel.steerAngle = steering;
+                }
+                if (axleInfo.motor) {
+                    axleInfo.leftWheel.motorTorque = motor;
+                    axleInfo.rightWheel.motorTorque = motor;
+                }
+                if (Input.GetKey(KeyCode.Space) && axleInfo.handBrake) { //currently not working. might remove//
+                     axleInfo.leftWheel.motorTorque = 0;
+                     axleInfo.rightWheel.motorTorque = 0;
+                     
+                }
+                ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+                ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+            }
+        }
    }
 
    public void ApplyLocalPositionToVisuals(WheelCollider collider)
@@ -58,14 +67,6 @@ public class SimpleCarController : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (!isControlled)
-            {
-                Instantiate(playerPrefab, transform.position, transform.rotation);
-                isControlled = true;
-            }
-        }
         UpdateSpeedometer();
     }
 
@@ -76,6 +77,7 @@ public class SimpleCarController : MonoBehaviour {
        speedometer.fillAmount = fillPercent;
        speedText.text = ((int)speed).ToString() + " km/h";
    }
+
 }
 
 [System.Serializable]
