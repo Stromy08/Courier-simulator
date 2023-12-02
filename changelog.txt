@@ -263,7 +263,6 @@ ChangeLog:
 
 
 0.0.1.22
-    •added visual wheels to car
     •fixed speedometer
     •added player (he can now enter and exit the car)
     •fixed camera (issues going all the way back to version 0.0.1.9)
@@ -276,3 +275,8 @@ ChangeLog:
         • camera clips through buildings
         • some assets dont match up
         • car doesnt have brakes (handbrake, and normal brakes)
+
+0.0.1.22.2
+    •fixed UI
+    •fixed size
+    •fixed player speed
