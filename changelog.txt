@@ -17,6 +17,7 @@ ChangeLog:
     •added color to car
     ISSUES:
         •cars steering radius isn't consistent
+        
 0.0.1.6
     •added temporary assets
     •added a potential terrain heightmap
