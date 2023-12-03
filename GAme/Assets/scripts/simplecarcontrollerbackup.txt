@@ -11,9 +11,13 @@ public class SimpleCarController : MonoBehaviour {
     public Image speedometer;
     public TMP_Text speedText;
     public float maxSpeed = 50f;
-
     public gameManager gameManager;
-
+    float rotationX;
+    float rotationZ;
+    [SerializeField] float maxRotationX = 50;
+    [SerializeField] float maxRotationY = 50;
+    public  bool isFlipped;
+    // search how to read a transform value in unity. make it so that if X>50 or Z>30: is flipped = true; if (isFlipped=true) transform rotation (0, Y, 0)
 
 
    public void FixedUpdate()
@@ -35,7 +39,6 @@ public class SimpleCarController : MonoBehaviour {
                 if (Input.GetKey(KeyCode.Space) && axleInfo.handBrake) { //currently not working. might remove//
                      axleInfo.leftWheel.motorTorque = 0;
                      axleInfo.rightWheel.motorTorque = 0;
-                     
                 }
                 ApplyLocalPositionToVisuals(axleInfo.leftWheel);
                 ApplyLocalPositionToVisuals(axleInfo.rightWheel);
@@ -64,6 +67,7 @@ public class SimpleCarController : MonoBehaviour {
     void Update()
     {
         UpdateSpeedometer();
+        CheckFlipped();
     }
 
    private void UpdateSpeedometer()
@@ -74,6 +78,11 @@ public class SimpleCarController : MonoBehaviour {
        speedText.text = ((int)speed).ToString() + " km/h";
    }
 
+    private void CheckFlipped()
+    {
+        rotationX = transform.rotation.eulerAngles.x;
+        rotationZ = transform.rotation.eulerAngles.z;
+    }
 }
 
 [System.Serializable]
