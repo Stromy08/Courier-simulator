@@ -6,19 +6,19 @@ public class pauseMenu : MonoBehaviour
 {
     public bool paused;
     public GameObject pauseUI;
-
+    public settings settings; // Changed 'Settings' to 'settings'
 
     void Start()
     {
         paused = false;
     }
 
-
     void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             paused = !paused;
+            settings.pressEscape();
         }
         checkPause();
     }
@@ -31,7 +31,6 @@ public class pauseMenu : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             pauseUI.SetActive(true);
-
         }
         else
         {
@@ -39,8 +38,8 @@ public class pauseMenu : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1;
             pauseUI.SetActive(false);
-
         }
     }
 
+    
 }

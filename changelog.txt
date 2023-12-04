@@ -303,3 +303,15 @@ ChangeLog:
         • camera clips through buildings
         • some assets dont match up
         • car doesnt have brakes (handbrake, and normal brakes)
+
+0.0.1.25
+    •added settings
+    •added graphics settings
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • new objects dont have a hitbox
+        • camera clips through buildings
+        • some assets dont match up
+        • car doesnt have brakes (handbrake, and normal brakes)

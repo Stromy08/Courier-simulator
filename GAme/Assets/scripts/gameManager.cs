@@ -46,6 +46,7 @@ public class gameManager : MonoBehaviour
             }
         }
     }
+
     public void DefinePlayer()
     {
         playerPrefab = GameObject.FindGameObjectWithTag("Player");
