@@ -316,7 +316,7 @@ ChangeLog:
         • some assets dont match up
         • car doesnt have brakes (handbrake, and normal brakes)
 
-0.0.1.26
+0.0.2
     •fixed map
 
         ISSUES
