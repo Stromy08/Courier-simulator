@@ -77,7 +77,7 @@ MonoBehaviour:
   quality:
     overrideState: 0
     value: 2
---- !u!114 &-1524833412471599229
+--- !u!114 &-2670041104762198131
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,44 +86,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48a79b01ea5641d4aa6daa2e23605641, type: 3}
-  m_Name: Bloom
+  m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
+  m_Name: ScreenSpaceReflections
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
-  intensity:
-    overrideState: 1
+  preset:
+    overrideState: 0
+    value: 2
+  maximumIterationCount:
+    overrideState: 0
+    value: 16
+  resolution:
+    overrideState: 0
     value: 0
-  threshold:
-    overrideState: 1
-    value: 1
-  softKnee:
+  thickness:
+    overrideState: 0
+    value: 8
+  maximumMarchDistance:
+    overrideState: 0
+    value: 100
+  distanceFade:
     overrideState: 0
     value: 0.5
-  clamp:
+  vignette:
     overrideState: 0
-    value: 65472
-  diffusion:
-    overrideState: 0
-    value: 7
-  anamorphicRatio:
-    overrideState: 0
-    value: 0
-  color:
-    overrideState: 0
-    value: {r: 1, g: 1, b: 1, a: 1}
-  fastMode:
-    overrideState: 0
-    value: 0
-  dirtTexture:
-    overrideState: 0
-    value: {fileID: 0}
-    defaultState: 1
-  dirtIntensity:
-    overrideState: 0
-    value: 0
+    value: 0.5
 --- !u!114 &-824175155843625975
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -234,7 +224,7 @@ MonoBehaviour:
     value: {x: 1, y: 1, z: 1, w: 0}
   gain:
     overrideState: 1
-    value: {x: -0.26722085, y: -0.26722085, z: -0.26722085, w: -0.26722085}
+    value: {x: 0, y: 0, z: 0, w: 0}
   masterCurve:
     overrideState: 0
     value:
@@ -1448,11 +1438,11 @@ MonoBehaviour:
   m_Name: Camera Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: -1524833412471599229}
   - {fileID: -4997559851945051951}
   - {fileID: -824175155843625975}
   - {fileID: 6296782536952670156}
   - {fileID: -4542080751766325282}
+  - {fileID: -2670041104762198131}
 --- !u!114 &6296782536952670156
 MonoBehaviour:
   m_ObjectHideFlags: 3
