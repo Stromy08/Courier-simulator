@@ -7,7 +7,6 @@ public class gameManager : MonoBehaviour
     public PlayerController PlayerController;
     public CameraController CameraController;
     public SimpleCarController simpleCarController;
-    public DeliveryManager deliveryManager;
     public bool IsDriving;
     public GameObject playerPrefab;
     public InstantiatePlayerScript instantiatePlayerScript;

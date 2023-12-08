@@ -4,27 +4,41 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player behaviour Settings")]
     public float speed = 4f;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     Vector3 velocity;
+
+    [Header("Define objects ")]
     public Transform cam;
-    public CharacterController controller;
-    private Animator animator; // Declare animator here
-    public bool IsInCarHitbox;
+
+    [Header("Animations")]
+    private Animator animator;
+
+    [Header("Scripts")]
     public gameManager gameManager;
+    public DeliveryManager deliveryManager;
+
+    [Header("UI")]
     public GameObject FToEnterText;
     public GameObject FToTalkToNpcText;
+
+    [Header("Is in hitbox bools")]
+    public bool IsInCarHitbox;
     public bool IsinDeliveryNpcHitbox;
 
+    [Header("Others")]
+    public CharacterController controller;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>(); // Get the Animator component here
 
+        deliveryManager = FindObjectOfType<DeliveryManager>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         FToTalkToNpcText.SetActive(false);
     }
@@ -32,6 +46,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerWalk();
+        OpenDeliveryMenu();
     }
 
     void OnTriggerEnter(Collider other)
@@ -61,6 +76,18 @@ public class PlayerController : MonoBehaviour
         {
             FToTalkToNpcText.SetActive(false);
             IsinDeliveryNpcHitbox = true;
+        }
+    }
+
+    void OpenDeliveryMenu()
+    {
+        if (IsinDeliveryNpcHitbox)
+        {
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                deliveryManager.OpenMenu();
+                FToTalkToNpcText.SetActive(false);
+            }
         }
     }
 

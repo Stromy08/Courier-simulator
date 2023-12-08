@@ -9,12 +9,18 @@ public class DeliveryManager : MonoBehaviour
     [SerializeField] TMP_Text scoreText;
     [SerializeField] TMP_Text deliveryStatusText;
     [SerializeField] TMP_Text destinationText;
+    //list of gui elements
+    [SerializeField] TMP_Text GUI_destinationText;
+    [SerializeField] GameObject GUI_destinationSelection;
 
     //general variables
     public bool deliveryActive;
     int score;
     string deliveryStatus;
     GameObject destination; 
+
+    public pauseMenu pauseScript;
+    public settings settings;
 
     // List of dropoff zones
     public List<GameObject> dropoffZones;
@@ -23,6 +29,7 @@ public class DeliveryManager : MonoBehaviour
     void Start()
     {
         deliveryActive = false;
+        GUI_destinationSelection.SetActive(false);
         score = 0;
         UpdateUI();
     }
@@ -39,7 +46,7 @@ public class DeliveryManager : MonoBehaviour
         }
 
         UpdateUI();
-
+        checkForClose();
     }
 
     void UpdateUI()
@@ -47,6 +54,31 @@ public class DeliveryManager : MonoBehaviour
         scoreText.text = "Score: " + score.ToString();
         deliveryStatusText.text = "Delivery status: " + deliveryStatus;
         destinationText.text = "Destination: " + (destination ? destination.name : "Post office");
+    }
+
+    public void OpenMenu()
+    {
+        GUI_destinationSelection.SetActive(true);
+        destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
+        pauseScript.paused = true;
+    }
+
+    void checkForClose()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            GUI_destinationSelection.SetActive(false);
+        }
+        if (settings.isActive)
+        {
+            GUI_destinationSelection.SetActive(false);
+        }
+    }
+
+    public void AcceptDelivery()
+    {
+        RecieveDelivery();
+        GUI_destinationText.text = "Destination:" + destination;
     }
 
     public void RecieveDelivery()

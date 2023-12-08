@@ -6,7 +6,6 @@ public class pauseMenu : MonoBehaviour
 {
     public bool paused;
     public GameObject pauseUI;
-    public settings settings; // Changed 'Settings' to 'settings'
 
     void Start()
     {
@@ -18,7 +17,6 @@ public class pauseMenu : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             paused = !paused;
-            settings.pressEscape();
         }
         checkPause();
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class settings : MonoBehaviour
 {
     public GameObject Settings;
-    bool isActive;
+    public bool isActive;
     public GameObject OpenSettingsButton;
     public GameObject CloseSettingsButton;
 
@@ -16,16 +16,20 @@ public class settings : MonoBehaviour
     void Start()
     {
         Settings.SetActive(false);
-        isActive = true;
+        isActive = false;
+        pressEscape();
     }
 
     // Update is called once per frame
 
     public void pressEscape()
     {
-        if (isActive)
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            close();
+            if (isActive)
+            {
+                close();
+            }
         }
     }
     public void close()
@@ -33,6 +37,7 @@ public class settings : MonoBehaviour
         Settings.SetActive(false);
         OpenSettingsButton.SetActive(true);
         CloseSettingsButton.SetActive(false);
+        isActive = false;
     }
 
     public void open()
@@ -40,6 +45,7 @@ public class settings : MonoBehaviour
         Settings.SetActive(true);
         OpenSettingsButton.SetActive(false);
         CloseSettingsButton.SetActive(true);
+        isActive = true;
     }
 
     public void openGraphicsMenu()
