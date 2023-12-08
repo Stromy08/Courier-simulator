@@ -318,6 +318,8 @@ ChangeLog:
 
 0.0.2
     •fixed map
+    •added hitbox to buildings
+    •fixed roads connection
 
         ISSUES
         • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
@@ -325,4 +327,15 @@ ChangeLog:
         • new objects dont have a hitbox
         • camera clips through buildings
         • some assets dont match up
+        • car doesnt have brakes (handbrake, and normal brakes)
+
+0.0.2.1
+    •changed post office building
+    •added boss npc
+    •added delivery choose gui
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)

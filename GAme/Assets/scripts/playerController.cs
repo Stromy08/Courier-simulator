@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour
     public bool IsInCarHitbox;
     public gameManager gameManager;
     public GameObject FToEnterText;
+    public GameObject FToTalkToNpcText;
+    public bool IsinDeliveryNpcHitbox;
+
 
     void Start()
     {
@@ -23,9 +26,45 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>(); // Get the Animator component here
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        FToTalkToNpcText.SetActive(false);
     }
     
     void Update()
+    {
+        PlayerWalk();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "InstantiatePlayer")
+        {
+            IsInCarHitbox = true;
+            FToEnterText.SetActive(true);
+        }
+
+        if (other.gameObject.tag == "pickupZone")
+        {
+            FToTalkToNpcText.SetActive(true);
+            IsinDeliveryNpcHitbox = true;
+        }
+
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "InstantiatePlayer")
+        {
+            IsInCarHitbox = false;
+            FToEnterText.SetActive(false);
+        }
+
+        if (other.gameObject.tag == "pickupZone")
+        {
+            FToTalkToNpcText.SetActive(false);
+            IsinDeliveryNpcHitbox = true;
+        }
+    }
+
+    void PlayerWalk()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
@@ -58,23 +97,5 @@ public class PlayerController : MonoBehaviour
         }
 
         controller.Move(velocity * Time.deltaTime);
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "InstantiatePlayer")
-        {
-            IsInCarHitbox = true;
-            FToEnterText.SetActive(true);
-        }
-
-    }
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "InstantiatePlayer")
-        {
-            IsInCarHitbox = false;
-            FToEnterText.SetActive(false);
-        }
     }
 }
