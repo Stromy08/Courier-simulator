@@ -7,7 +7,7 @@ public class DeliveryManager : MonoBehaviour
 {
     //list of ui elements
     [SerializeField] TMP_Text scoreText;
-    [SerializeField] TMP_Text deliveryStatusText;
+
     [SerializeField] TMP_Text destinationText;
     //list of gui elements
     [SerializeField] TMP_Text GUI_destinationText;
@@ -15,9 +15,16 @@ public class DeliveryManager : MonoBehaviour
 
     //general variables
     public bool deliveryActive;
+    public enum deliveryStatus
+    {
+        Accepted,
+        InProgress,
+        NotActive
+    }
+
     int score;
-    string deliveryStatus;
     GameObject destination; 
+    string UI_DestinationText;
 
     public pauseMenu pauseScript;
     public settings settings;
@@ -28,38 +35,33 @@ public class DeliveryManager : MonoBehaviour
 
     void Start()
     {
-        deliveryActive = false;
+        deliveryStatus = deliveryStatus.NotActive;
         GUI_destinationSelection.SetActive(false);
         score = 0;
+        UI_DestinationText = "Post Office";
         UpdateUI();
     }
 
     void Update()
     {
-        if (deliveryActive)
-        {
-            deliveryStatus = "In Progress";
-        }
-        else
-        {
-            deliveryStatus = "Idle";
-        }
-
         UpdateUI();
         checkForClose();
+
+        Debug.Log(deliveryStatus);
     }
 
     void UpdateUI()
     {
         scoreText.text = "Score: " + score.ToString();
-        deliveryStatusText.text = "Delivery status: " + deliveryStatus;
-        destinationText.text = "Destination: " + (destination ? destination.name : "Post office");
+        destinationText.text = "Destination: " + UI_DestinationText;
     }
 
     public void OpenMenu()
     {
         GUI_destinationSelection.SetActive(true);
         destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
+        GUI_destinationText.text = "Destination: " + destination.name;
+        UI_DestinationText = "Waiting...";
         pauseScript.paused = true;
     }
 
@@ -77,14 +79,26 @@ public class DeliveryManager : MonoBehaviour
 
     public void AcceptDelivery()
     {
-        RecieveDelivery();
-        GUI_destinationText.text = "Destination:" + destination;
+        Debug.Log("deliveryManager.cs: AcceptDelivery()");
+        destinationText.text = "Destiantion: " + destination.name;
+        UI_DestinationText = "Parcel Pickup Point";
+        deliveryStatus = deliveryStatus.Accepted;
+    }
+
+    public void ReRollDelivery()
+    {   
+        if (deliveryStatus.NotActive)
+        {
+            destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
+            GUI_destinationText.text = "Destination: " + destination.name;
+        }
     }
 
     public void RecieveDelivery()
     {
-        destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
         deliveryActive = true;
+        UI_DestinationText = destination.name;
+        deliveryStatus = deliveryStatus.InProgress;
     }
 
     public void DropoffParcel()
@@ -92,16 +106,8 @@ public class DeliveryManager : MonoBehaviour
         deliveryActive = false;
         score++;
         destination = pickupZones[Random.Range(0, pickupZones.Count)];
-    }
-
-
-    public void payScore()
-    {
-        if (score >= 1)
-        {
-            score = score - 1;
-        }
-
+        UI_DestinationText = destination.name;
+        deliveryStatus = deliveryStatus.NotActive;
     }
 
 }

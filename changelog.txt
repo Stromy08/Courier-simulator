@@ -349,3 +349,13 @@ ChangeLog:
           and making it bright instead of dark at night
         • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)
+
+0.0.2.3
+    •addded some extra functionality to delivery selection menu (currently not working)
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • delivery selection menu is broken

@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "pickupZone")
         {
             FToTalkToNpcText.SetActive(false);
-            IsinDeliveryNpcHitbox = true;
+            IsinDeliveryNpcHitbox = false;
         }
     }
 
