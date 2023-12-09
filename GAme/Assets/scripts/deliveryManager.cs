@@ -21,6 +21,7 @@ public class DeliveryManager : MonoBehaviour
         InProgress,
         NotActive
     }
+    public deliveryStatus DeliveryStatus { get; set; }
 
     int score;
     GameObject destination; 
@@ -35,7 +36,7 @@ public class DeliveryManager : MonoBehaviour
 
     void Start()
     {
-        deliveryStatus = deliveryStatus.NotActive;
+        DeliveryStatus = deliveryStatus.NotActive;
         GUI_destinationSelection.SetActive(false);
         score = 0;
         UI_DestinationText = "Post Office";
@@ -47,7 +48,7 @@ public class DeliveryManager : MonoBehaviour
         UpdateUI();
         checkForClose();
 
-        Debug.Log(deliveryStatus);
+        Debug.Log(DeliveryStatus);
     }
 
     void UpdateUI()
@@ -82,12 +83,12 @@ public class DeliveryManager : MonoBehaviour
         Debug.Log("deliveryManager.cs: AcceptDelivery()");
         destinationText.text = "Destiantion: " + destination.name;
         UI_DestinationText = "Parcel Pickup Point";
-        deliveryStatus = deliveryStatus.Accepted;
+        DeliveryStatus = deliveryStatus.Accepted;
     }
 
     public void ReRollDelivery()
     {   
-        if (deliveryStatus.NotActive)
+        if (DeliveryStatus == deliveryStatus.NotActive)
         {
             destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
             GUI_destinationText.text = "Destination: " + destination.name;
@@ -98,7 +99,7 @@ public class DeliveryManager : MonoBehaviour
     {
         deliveryActive = true;
         UI_DestinationText = destination.name;
-        deliveryStatus = deliveryStatus.InProgress;
+        DeliveryStatus = deliveryStatus.InProgress;
     }
 
     public void DropoffParcel()
@@ -107,7 +108,7 @@ public class DeliveryManager : MonoBehaviour
         score++;
         destination = pickupZones[Random.Range(0, pickupZones.Count)];
         UI_DestinationText = destination.name;
-        deliveryStatus = deliveryStatus.NotActive;
+        DeliveryStatus = deliveryStatus.NotActive;
     }
 
 }
