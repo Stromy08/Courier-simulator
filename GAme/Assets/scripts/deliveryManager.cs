@@ -12,6 +12,7 @@ public class DeliveryManager : MonoBehaviour
     //list of gui elements
     [SerializeField] TMP_Text GUI_destinationText;
     [SerializeField] GameObject GUI_destinationSelection;
+    [SerializeField] TMP_Text Warnings;
 
     //general variables
     public bool deliveryActive;
@@ -24,15 +25,19 @@ public class DeliveryManager : MonoBehaviour
     public deliveryStatus DeliveryStatus { get; set; }
 
     int score;
-    GameObject destination; 
     string UI_DestinationText;
-
     public pauseMenu pauseScript;
     public settings settings;
+
+    //gameobjects
+    GameObject destination; 
+    [SerializeField] GameObject ParcelSpawn;
+    [SerializeField] GameObject parcelPrefab;
 
     // List of dropoff zones
     public List<GameObject> dropoffZones;
     public List<GameObject> pickupZones;
+    Vector3 spawnLocation;
 
     void Start()
     {
@@ -41,14 +46,14 @@ public class DeliveryManager : MonoBehaviour
         score = 0;
         UI_DestinationText = "Post Office";
         UpdateUI();
+        spawnLocation = ParcelSpawn.transform.position;
+        Warnings.gameObject.SetActive(false);
     }
 
     void Update()
     {
         UpdateUI();
         checkForClose();
-
-        Debug.Log(DeliveryStatus);
     }
 
     void UpdateUI()
@@ -80,10 +85,25 @@ public class DeliveryManager : MonoBehaviour
 
     public void AcceptDelivery()
     {
-        Debug.Log("deliveryManager.cs: AcceptDelivery()");
-        destinationText.text = "Destiantion: " + destination.name;
-        UI_DestinationText = "Parcel Pickup Point";
-        DeliveryStatus = deliveryStatus.Accepted;
+        if (DeliveryStatus == deliveryStatus.NotActive)
+        {
+            destinationText.text = "Destiantion: " + destination.name;
+            UI_DestinationText = "Parcel Pickup Point";
+            DeliveryStatus = deliveryStatus.Accepted;
+            Instantiate(parcelPrefab, spawnLocation, Quaternion.identity);
+        }
+        else if (DeliveryStatus == deliveryStatus.Accepted)
+        {
+            Warnings.gameObject.SetActive(true);
+            Warnings.text = "You have Already Accepted the delivery.\nFind the parcel and deliver it.";
+            // StartCoroutine(Wait(7));
+        }
+        else if (DeliveryStatus == deliveryStatus.InProgress)
+        {
+            Warnings.gameObject.SetActive(true);
+            Warnings.text = "The delivery is already in progress.\nDeliver it to the correct house before starting a new one.";
+            // StartCoroutine(Wait(7));
+        }
     }
 
     public void ReRollDelivery()
@@ -93,6 +113,18 @@ public class DeliveryManager : MonoBehaviour
             destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
             GUI_destinationText.text = "Destination: " + destination.name;
         }
+        else if (DeliveryStatus == deliveryStatus.Accepted)
+        {
+            Warnings.gameObject.SetActive(true);
+            Warnings.text = "You have Already Accepted the delivery.\nFind the parcel and deliver it.";
+            // StartCoroutine(Wait(7));
+        }
+        else if (DeliveryStatus == deliveryStatus.InProgress)
+        {
+            Warnings.gameObject.SetActive(true);
+            Warnings.text = "The delivery is already in progress.\nDeliver it to the correct house before starting a new one.";
+            // StartCoroutine(Wait(7));
+        }
     }
 
     public void RecieveDelivery()
@@ -101,6 +133,14 @@ public class DeliveryManager : MonoBehaviour
         UI_DestinationText = destination.name;
         DeliveryStatus = deliveryStatus.InProgress;
     }
+
+    // IEnumerator Wait(float waitTime)
+    // {   
+    //     Debug.Log("hide success");
+    //     yield return new WaitForSeconds(waitTime);
+    //     Debug.Log("hide success");
+    //     Warnings.gameObject.SetActive(false);
+    // }
 
     public void DropoffParcel()
     {

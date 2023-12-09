@@ -10,6 +10,7 @@ TagManager:
   - store
   - InstantiatePlayer
   - cameraAnchor
+  - parcel
   layers:
   - Default
   - TransparentFX

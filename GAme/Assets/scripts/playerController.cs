@@ -63,6 +63,11 @@ public class PlayerController : MonoBehaviour
             IsinDeliveryNpcHitbox = true;
         }
 
+        if (other.gameObject.tag == "parcel")
+        {
+            
+        }
+
     }
     void OnTriggerExit(Collider other)
     {
