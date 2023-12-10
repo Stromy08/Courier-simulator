@@ -48,11 +48,17 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>(); // Get the Animator component here
+        GameObject deliveryManagerObject = GameObject.Find("DeliveryManager");
+        if (deliveryManagerObject != null)
+        {
+            deliveryManager = deliveryManagerObject.GetComponent<DeliveryManager>();
+        }
 
         deliveryManager = FindObjectOfType<DeliveryManager>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         FToTalkToNpcText.SetActive(false);
         PickupParcelText.SetActive(false);
+
     }
     
     void Update()
