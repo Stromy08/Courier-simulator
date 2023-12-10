@@ -28,11 +28,13 @@ public class DeliveryManager : MonoBehaviour
     string UI_DestinationText;
     public pauseMenu pauseScript;
     public settings settings;
+    public bool IsHoldingParcel;
 
     //gameobjects
     GameObject destination; 
     [SerializeField] GameObject ParcelSpawn;
     [SerializeField] GameObject parcelPrefab;
+    public GameObject parcelInstance;
 
     // List of dropoff zones
     public List<GameObject> dropoffZones;
@@ -48,6 +50,7 @@ public class DeliveryManager : MonoBehaviour
         UpdateUI();
         spawnLocation = ParcelSpawn.transform.position;
         Warnings.gameObject.SetActive(false);
+        IsHoldingParcel = false;
     }
 
     void Update()
@@ -103,7 +106,7 @@ public class DeliveryManager : MonoBehaviour
             destinationText.text = "Destiantion: " + destination.name;
             UI_DestinationText = "Parcel Pickup Point";
             DeliveryStatus = deliveryStatus.Accepted;
-            Instantiate(parcelPrefab, spawnLocation, Quaternion.identity);
+            parcelInstance = Instantiate(parcelPrefab, spawnLocation, Quaternion.identity);
         }
         else if (DeliveryStatus == deliveryStatus.Accepted)
         {
@@ -145,6 +148,10 @@ public class DeliveryManager : MonoBehaviour
         deliveryActive = true;
         UI_DestinationText = destination.name;
         DeliveryStatus = deliveryStatus.InProgress;
+        if(parcelInstance != null)
+        DestroyImmediate(parcelInstance, true);
+        parcelInstance = null;
+        IsHoldingParcel = true;
     }
 
     // IEnumerator Wait(float waitTime)

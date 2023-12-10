@@ -400,3 +400,15 @@ ChangeLog:
         • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
+
+0.0.3
+    •can now pickup and drop parcels
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+        • can't enter car when close to a parcel
+        • parcels infinitely spawn

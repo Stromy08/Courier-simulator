@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Define objects ")]
     public Transform cam;
+    public GameObject player;
+    public GameObject parcelPrefab;
 
     [Header("Animations")]
     private Animator animator;
@@ -25,7 +27,8 @@ public class PlayerController : MonoBehaviour
     [Header("UI")]
     public GameObject FToEnterText;
     public GameObject FToTalkToNpcText;
-    public GameObject FToPickupParcelText;
+    public GameObject PickupParcelText;
+    private GameObject parcelInstance;
 
     // zone states
     public enum IsInZone
@@ -49,7 +52,7 @@ public class PlayerController : MonoBehaviour
         deliveryManager = FindObjectOfType<DeliveryManager>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         FToTalkToNpcText.SetActive(false);
-        FToPickupParcelText.SetActive(false);
+        PickupParcelText.SetActive(false);
     }
     
     void Update()
@@ -57,6 +60,7 @@ public class PlayerController : MonoBehaviour
         PlayerWalk();
         OpenDeliveryMenu();
         PickupParcel();
+        DropoffParcel();
     }
 
     void OnTriggerEnter(Collider other)
@@ -76,7 +80,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "parcel")
         {
             currentZone = IsInZone.ParcelEntity;
-            FToPickupParcelText.SetActive(true);
+            PickupParcelText.SetActive(true);
         }
     }
     void OnTriggerExit(Collider other)
@@ -96,7 +100,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "parcel")
         {
             currentZone = IsInZone.none;
-            FToPickupParcelText.SetActive(false);
+            PickupParcelText.SetActive(false);
         }
     }
 
@@ -116,10 +120,25 @@ public class PlayerController : MonoBehaviour
     {
         if (currentZone == IsInZone.ParcelEntity)
         {
-            if (Input.GetKeyUp(KeyCode.F))
+            if (!deliveryManager.IsHoldingParcel)
             {
-                FToPickupParcelText.SetActive(false);
-                deliveryManager.RecieveDelivery();
+                if (Input.GetKeyUp(KeyCode.C))
+                {
+                    PickupParcelText.SetActive(false);
+                    deliveryManager.RecieveDelivery();
+                }
+            }
+        }
+    }
+
+    void DropoffParcel()
+    {
+        if (deliveryManager.IsHoldingParcel)
+        {
+            if (Input.GetKeyUp(KeyCode.C))
+            {
+                Vector3 spawnLocation = player.transform.position + new Vector3(0, 2, 0); // This will spawn the parcel 1 unit above the player
+                parcelInstance = Instantiate(parcelPrefab, spawnLocation, Quaternion.identity);
             }
         }
     }

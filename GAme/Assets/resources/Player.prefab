@@ -169,7 +169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press F to pickup parcel
+  m_text: Press C to pickup parcel
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -753,10 +753,12 @@ MonoBehaviour:
   gravity: -9.81
   jumpHeight: 1
   cam: {fileID: 0}
+  player: {fileID: 3152244429027244723}
+  parcelPrefab: {fileID: 9169737833710865497, guid: 4cce7fe539ed0db46a0ca71f89951672, type: 3}
   gameManager: {fileID: 0}
   deliveryManager: {fileID: 0}
   FToEnterText: {fileID: 6923905618602629724}
   FToTalkToNpcText: {fileID: 5435102213798877321}
-  FToPickupParcelText: {fileID: 4674053835941406453}
+  PickupParcelText: {fileID: 4674053835941406453}
   currentZone: 0
   controller: {fileID: 5088569519903539515}
