@@ -381,4 +381,22 @@ ChangeLog:
         • car doesnt have brakes (handbrake, and normal brakes)
 
 0.0.2.6
-    •must update changelog
+    •fixed some issues with hitboxes and parcel ui
+    •fixed menu
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+
+0.0.2.7 
+    •changed post office building model extention to fbx
+
+    ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
