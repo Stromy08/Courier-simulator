@@ -25,10 +25,18 @@ public class PlayerController : MonoBehaviour
     [Header("UI")]
     public GameObject FToEnterText;
     public GameObject FToTalkToNpcText;
+    public GameObject FToPickupParcelText;
 
+    // zone states
+    public enum IsInZone
+    {
+        none,
+        CarEnterance,
+        DeliveryNpc,
+        ParcelEntity
+    }
     [Header("Is in hitbox bools")]
-    public bool IsInCarHitbox;
-    public bool IsinDeliveryNpcHitbox;
+    public IsInZone currentZone;
 
     [Header("Others")]
     public CharacterController controller;
@@ -41,57 +49,77 @@ public class PlayerController : MonoBehaviour
         deliveryManager = FindObjectOfType<DeliveryManager>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         FToTalkToNpcText.SetActive(false);
+        FToPickupParcelText.SetActive(false);
     }
     
     void Update()
     {
         PlayerWalk();
         OpenDeliveryMenu();
+        PickupParcel();
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "InstantiatePlayer")
         {
-            IsInCarHitbox = true;
+            currentZone = IsInZone.CarEnterance;
             FToEnterText.SetActive(true);
         }
 
         if (other.gameObject.tag == "pickupZone")
         {
             FToTalkToNpcText.SetActive(true);
-            IsinDeliveryNpcHitbox = true;
+            currentZone = IsInZone.DeliveryNpc;
         }
 
         if (other.gameObject.tag == "parcel")
         {
-            
+            currentZone = IsInZone.ParcelEntity;
+            FToPickupParcelText.SetActive(true);
         }
-
     }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "InstantiatePlayer")
         {
-            IsInCarHitbox = false;
+            currentZone = IsInZone.none;
             FToEnterText.SetActive(false);
         }
 
         if (other.gameObject.tag == "pickupZone")
         {
             FToTalkToNpcText.SetActive(false);
-            IsinDeliveryNpcHitbox = false;
+            currentZone = IsInZone.none;
+        }
+
+        if (other.gameObject.tag == "parcel")
+        {
+            currentZone = IsInZone.none;
+            FToPickupParcelText.SetActive(false);
         }
     }
 
     void OpenDeliveryMenu()
     {
-        if (IsinDeliveryNpcHitbox)
+        if (currentZone == IsInZone.DeliveryNpc)
         {
             if (Input.GetKeyUp(KeyCode.F))
             {
                 deliveryManager.OpenMenu();
                 FToTalkToNpcText.SetActive(false);
+            }
+        }
+    }
+
+    void PickupParcel()
+    {
+        if (currentZone == IsInZone.ParcelEntity)
+        {
+            if (Input.GetKeyUp(KeyCode.F))
+            {
+                FToPickupParcelText.SetActive(false);
+                deliveryManager.RecieveDelivery();
             }
         }
     }

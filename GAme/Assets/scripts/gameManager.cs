@@ -35,7 +35,7 @@ public class gameManager : MonoBehaviour
             }
             else
             {
-                if (PlayerController.IsInCarHitbox)
+                if (PlayerController.currentZone == PlayerController.IsInZone.CarEnterance)
                 {
                     IsDriving = true;
                     Destroy(playerPrefab);

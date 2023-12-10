@@ -67,8 +67,11 @@ public class DeliveryManager : MonoBehaviour
         GUI_destinationSelection.SetActive(true);
         destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
         GUI_destinationText.text = "Destination: " + destination.name;
-        UI_DestinationText = "Waiting...";
         pauseScript.paused = true;
+        if (DeliveryStatus == deliveryStatus.NotActive){
+            UI_DestinationText = "Waiting...";
+        }
+
     }
 
     void checkForClose()
@@ -76,10 +79,20 @@ public class DeliveryManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             GUI_destinationSelection.SetActive(false);
+
+            if (DeliveryStatus == deliveryStatus.NotActive)
+            {
+                UI_DestinationText = "Post Office";
+            }
         }
         if (settings.isActive)
         {
             GUI_destinationSelection.SetActive(false);
+
+            if (DeliveryStatus == deliveryStatus.NotActive)
+            {
+                UI_DestinationText = "Post Office";
+            }
         }
     }
 

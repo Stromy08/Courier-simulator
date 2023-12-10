@@ -379,3 +379,6 @@ ChangeLog:
           and making it bright instead of dark at night
         • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)
+
+0.0.2.6
+    •must update changelog
