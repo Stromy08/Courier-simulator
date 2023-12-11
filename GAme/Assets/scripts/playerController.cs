@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public GameObject FToEnterText;
     public GameObject FToTalkToNpcText;
     public GameObject PickupParcelText;
-    private GameObject parcelInstance;
+    public GameObject parcelInstance;
 
     // zone states
     public enum IsInZone

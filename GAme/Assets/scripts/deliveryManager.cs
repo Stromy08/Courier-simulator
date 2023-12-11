@@ -29,12 +29,14 @@ public class DeliveryManager : MonoBehaviour
     public pauseMenu pauseScript;
     public settings settings;
     public bool IsHoldingParcel;
+    public PlayerController playerController;
 
     //gameobjects
-    GameObject destination;
+    public GameObject destination;
     [SerializeField] GameObject ParcelSpawn;
     [SerializeField] GameObject parcelPrefab;
     public GameObject parcelInstance;
+    
 
     // List of dropoff zones
     public List<GameObject> dropoffZones;
@@ -57,6 +59,11 @@ public class DeliveryManager : MonoBehaviour
     {
         UpdateUI();
         checkForClose();
+        Debug.Log(destination);
+        if (playerController == null)
+        {
+            playerController = FindObjectOfType<PlayerController>();
+        }
     }
 
     void UpdateUI()
@@ -161,8 +168,13 @@ public class DeliveryManager : MonoBehaviour
     //     Warnings.gameObject.SetActive(false);
     // }
 
-    public void DropoffParcel()
+    public void DropoffParcel(PlayerController playerController)
     {
+        if (playerController.parcelInstance != null)
+        {
+            Destroy(playerController.parcelInstance);
+            playerController.parcelInstance = null;
+        }
         deliveryActive = false;
         score++;
         destination = pickupZones[Random.Range(0, pickupZones.Count)];

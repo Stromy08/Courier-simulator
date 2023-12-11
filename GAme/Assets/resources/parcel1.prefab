@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8673135964253367886}
   - component: {fileID: 3169528200602019474}
   - component: {fileID: 2681499959534482500}
+  - component: {fileID: 1956135727426454725}
   m_Layer: 0
   m_Name: parcel1
   m_TagString: parcel
@@ -104,6 +105,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6.151316, y: 5.8472037, z: 5.873947}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1956135727426454725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9169737833710865497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ef72734639ac34f99a87b69ba051d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parcelPrefab: {fileID: 9169737833710865497}
+  parcelInstance: {fileID: 0}
+  deliveryManager: {fileID: 0}
 --- !u!1001 &1673208398702413177
 PrefabInstance:
   m_ObjectHideFlags: 0
