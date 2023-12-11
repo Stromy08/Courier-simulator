@@ -412,3 +412,14 @@ ChangeLog:
         • car keeps going forever when player leaves it
         • can't enter car when close to a parcel
         • parcels infinitely spawn
+
+0.0.3.1
+    •fixed parcels cloning 
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+        • can't enter car when close to a parcel (feature not bug)

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
@@ -31,7 +31,7 @@ public class DeliveryManager : MonoBehaviour
     public bool IsHoldingParcel;
 
     //gameobjects
-    GameObject destination; 
+    GameObject destination;
     [SerializeField] GameObject ParcelSpawn;
     [SerializeField] GameObject parcelPrefab;
     public GameObject parcelInstance;
@@ -71,7 +71,8 @@ public class DeliveryManager : MonoBehaviour
         destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
         GUI_destinationText.text = "Destination: " + destination.name;
         pauseScript.paused = true;
-        if (DeliveryStatus == deliveryStatus.NotActive){
+        if (DeliveryStatus == deliveryStatus.NotActive)
+        {
             UI_DestinationText = "Waiting...";
         }
 
@@ -123,7 +124,7 @@ public class DeliveryManager : MonoBehaviour
     }
 
     public void ReRollDelivery()
-    {   
+    {
         if (DeliveryStatus == deliveryStatus.NotActive)
         {
             destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
@@ -148,9 +149,7 @@ public class DeliveryManager : MonoBehaviour
         deliveryActive = true;
         UI_DestinationText = destination.name;
         DeliveryStatus = deliveryStatus.InProgress;
-        if(parcelInstance != null)
-        DestroyImmediate(parcelInstance, true);
-        parcelInstance = null;
+        Destroy(parcelInstance.gameObject);
         IsHoldingParcel = true;
     }
 
