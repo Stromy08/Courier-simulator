@@ -169,16 +169,18 @@ public class DeliveryManager : MonoBehaviour
 
     public void DropoffParcel(PlayerController playerController)
     {
+        deliveryActive = false;
+        IsHoldingParcel = false; // Add this line
+        score++;
+        destination = pickupZones[Random.Range(0, pickupZones.Count)];
+        UI_DestinationText = destination.name;
+        DeliveryStatus = deliveryStatus.NotActive;
+        playerController.HidePickupParcelText();
         if (playerController.parcelInstance != null)
         {
             Destroy(playerController.parcelInstance);
             playerController.parcelInstance = null;
         }
-        deliveryActive = false;
-        score++;
-        destination = pickupZones[Random.Range(0, pickupZones.Count)];
-        UI_DestinationText = destination.name;
-        DeliveryStatus = deliveryStatus.NotActive;
     }
 
 }

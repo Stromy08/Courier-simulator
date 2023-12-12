@@ -68,7 +68,6 @@ public class PlayerController : MonoBehaviour
 
         DropoffParcel();
         PickupParcel();
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -145,14 +144,25 @@ public class PlayerController : MonoBehaviour
     {
         if (deliveryManager.IsHoldingParcel)
         {
-            if (Input.GetKeyDown(KeyCode.C))
+            if (deliveryManager.DeliveryStatus == DeliveryManager.deliveryStatus.InProgress)
             {
-                Vector3 spawnLocation = player.transform.position + new Vector3(0, 2, 0); // This will spawn the parcel 1 unit above the player
-                parcelInstance = Instantiate(parcelPrefab, spawnLocation, Quaternion.identity);
-                deliveryManager.parcelInstance = parcelInstance;
-                deliveryManager.IsHoldingParcel = false;
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    Vector3 spawnLocation = player.transform.position + new Vector3(0, 2, 0); // This will spawn the parcel 1 unit above the player
+                    parcelInstance = Instantiate(parcelPrefab, spawnLocation, Quaternion.identity);
+                    deliveryManager.parcelInstance = parcelInstance;
+                    deliveryManager.IsHoldingParcel = false;
+                }
             }
         }
+    }
+
+    public void HidePickupParcelText()
+    {
+        Debug.Log("success");
+        currentZone = IsInZone.none;
+        PickupParcelText.SetActive(false);
+        
     }
 
     void PlayerWalk()
