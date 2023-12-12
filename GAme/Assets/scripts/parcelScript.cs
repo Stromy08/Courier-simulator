@@ -33,7 +33,9 @@ public class parcelScript : MonoBehaviour
         {
             if (playerController.parcelInstance != null)
             {
+                playerController.parcelInstance.gameObject.tag = "Untagged";
                 deliveryManager.DropoffParcel(playerController);
+                playerController.currentZone = PlayerController.IsInZone.none;
             }
         }
     }

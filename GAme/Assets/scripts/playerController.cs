@@ -159,7 +159,6 @@ public class PlayerController : MonoBehaviour
 
     public void HidePickupParcelText()
     {
-        Debug.Log("success");
         currentZone = IsInZone.none;
         PickupParcelText.SetActive(false);
         

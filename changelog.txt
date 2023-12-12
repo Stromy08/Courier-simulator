@@ -444,3 +444,18 @@ ChangeLog:
         • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
+
+0.1.0
+    •addded new post office building
+    •added boss npc
+    •added a destination selection menu
+    •added actual parcels
+    •parcels can be picked up and placed back down
+    •parcels have to be delivered to the correct house to score a point
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
