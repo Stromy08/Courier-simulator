@@ -26,7 +26,6 @@ public class gameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-
             if (IsDriving)
             {
                 CarUI.SetActive(false);
@@ -36,7 +35,7 @@ public class gameManager : MonoBehaviour
             }
             else
             {
-                if (PlayerController.IsInCarHitbox)
+                if (PlayerController.currentZone == PlayerController.IsInZone.CarEnterance)
                 {
                     IsDriving = true;
                     Destroy(playerPrefab);

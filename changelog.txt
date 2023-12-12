@@ -318,6 +318,8 @@ ChangeLog:
 
 0.0.2
     •fixed map
+    •added hitbox to buildings
+    •fixed roads connection
 
         ISSUES
         • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
@@ -326,3 +328,134 @@ ChangeLog:
         • camera clips through buildings
         • some assets dont match up
         • car doesnt have brakes (handbrake, and normal brakes)
+
+0.0.2.1
+    •changed post office building
+    •added boss npc
+    •added delivery choose gui
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+
+0.0.2.2
+    •fixed some miscelanious code
+    •delivery selection menu can now be enabled
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+
+0.0.2.3
+    •addded some extra functionality to delivery selection menu (currently not working)
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • delivery selection menu is broken
+
+0.0.2.4
+    •fixed errors
+    
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+
+0.0.2.5
+    •made parcels spawn when pressed accept
+    •fixed small issues regarding parcels
+    •improved parcel ui
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+
+0.0.2.6
+    •fixed some issues with hitboxes and parcel ui
+    •fixed menu
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+
+0.0.2.7 
+    •changed post office building model extention to fbx
+
+    ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+
+0.0.3
+    •can now pickup and drop parcels
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+        • can't enter car when close to a parcel
+        • parcels infinitely spawn
+
+0.0.3.1
+    •fixed parcels cloning 
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+        • can't enter car when close to a parcel (feature not bug)
+
+0.0.3.2
+    •added parcel dropoff (WiP)
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+        • parcel doesnt get dropped off properly
+
+0.0.3.3
+    •parcel delivery fixed
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+
+0.1.0
+    •addded new post office building
+    •added boss npc
+    •added a destination selection menu
+    •added actual parcels
+    •parcels can be picked up and placed back down
+    •parcels have to be delivered to the correct house to score a point
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it

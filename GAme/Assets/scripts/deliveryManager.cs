@@ -1,96 +1,186 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class DeliveryManager : MonoBehaviour
 {
+    //list of ui elements
     [SerializeField] TMP_Text scoreText;
-    [SerializeField] TMP_Text deliveryStatusText;
+
     [SerializeField] TMP_Text destinationText;
-    bool carStatus;
+    //list of gui elements
+    [SerializeField] TMP_Text GUI_destinationText;
+    [SerializeField] GameObject GUI_destinationSelection;
+    [SerializeField] TMP_Text Warnings;
+
+    //general variables
+    public bool deliveryActive;
+    public enum deliveryStatus
+    {
+        Accepted,
+        InProgress,
+        NotActive
+    }
+    public deliveryStatus DeliveryStatus { get; set; }
+
     int score;
-    string deliveryStatus;
-    GameObject destination; // Change the type to GameObject
+    string UI_DestinationText;
+    public pauseMenu pauseScript;
+    public settings settings;
+    public bool IsHoldingParcel;
+    public PlayerController playerController;
+
+    //gameobjects
+    public GameObject destination;
+    [SerializeField] GameObject ParcelSpawn;
+    [SerializeField] GameObject parcelPrefab;
+    public GameObject parcelInstance;
+    
 
     // List of dropoff zones
     public List<GameObject> dropoffZones;
     public List<GameObject> pickupZones;
-    public List<GameObject> shops;
+    Vector3 spawnLocation;
 
-    // Start is called before the first frame update
     void Start()
     {
-        // Initialize the delivery status and score
-        carStatus = false;
+        DeliveryStatus = deliveryStatus.NotActive;
+        GUI_destinationSelection.SetActive(false);
         score = 0;
+        UI_DestinationText = "Post Office";
         UpdateUI();
+        spawnLocation = ParcelSpawn.transform.position;
+        Warnings.gameObject.SetActive(false);
+        IsHoldingParcel = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (carStatus)
-        {
-            deliveryStatus = "In Progress";
-        }
-        else
-        {
-            deliveryStatus = "Idle";
-        }
-
         UpdateUI();
-
+        checkForClose();
+        if (playerController == null)
+        {
+            playerController = FindObjectOfType<PlayerController>();
+        }
     }
 
-    // Update the UI texts
     void UpdateUI()
     {
         scoreText.text = "Score: " + score.ToString();
-        deliveryStatusText.text = "Delivery status: " + deliveryStatus;
-        destinationText.text = "Destination: " + (destination ? destination.name : "Post office");
+        destinationText.text = "Destination: " + UI_DestinationText;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OpenMenu()
     {
-
-
-        if (other.gameObject.CompareTag("pickupZone"))
+        GUI_destinationSelection.SetActive(true);
+        destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
+        GUI_destinationText.text = "Destination: " + destination.name;
+        pauseScript.paused = true;
+        if (DeliveryStatus == deliveryStatus.NotActive)
         {
-            if (!carStatus)
-            {
-                // Select a random dropoff zone from the list
-                destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
-                carStatus = true;
-            }
+            UI_DestinationText = "Waiting...";
         }
 
-        if (other.gameObject.CompareTag("dropoffZone"))
-        {
-            if (carStatus)
-            {
-                // Check if the collided object matches the selected dropoff zone
-                if (other.gameObject == destination)
-                {
-                    carStatus = false;
-                    score++;
-                    destination = pickupZones[Random.Range(0, pickupZones.Count)];
-                }
-            }
-        }
-
-        UpdateUI();
     }
 
-
-
-    public void payScore()
+    void checkForClose()
     {
-        if (score >= 1)
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
-            score = score - 1;
-        }
+            GUI_destinationSelection.SetActive(false);
 
+            if (DeliveryStatus == deliveryStatus.NotActive)
+            {
+                UI_DestinationText = "Post Office";
+            }
+        }
+        if (settings.isActive)
+        {
+            GUI_destinationSelection.SetActive(false);
+
+            if (DeliveryStatus == deliveryStatus.NotActive)
+            {
+                UI_DestinationText = "Post Office";
+            }
+        }
+    }
+
+    public void AcceptDelivery()
+    {
+        if (DeliveryStatus == deliveryStatus.NotActive)
+        {
+            destinationText.text = "Destiantion: " + destination.name;
+            UI_DestinationText = "Parcel Pickup Point";
+            DeliveryStatus = deliveryStatus.Accepted;
+            parcelInstance = Instantiate(parcelPrefab, spawnLocation, Quaternion.identity);
+        }
+        else if (DeliveryStatus == deliveryStatus.Accepted)
+        {
+            Warnings.gameObject.SetActive(true);
+            Warnings.text = "You have Already Accepted the delivery.\nFind the parcel and deliver it.";
+            // StartCoroutine(Wait(7));
+        }
+        else if (DeliveryStatus == deliveryStatus.InProgress)
+        {
+            Warnings.gameObject.SetActive(true);
+            Warnings.text = "The delivery is already in progress.\nDeliver it to the correct house before starting a new one.";
+            // StartCoroutine(Wait(7));
+        }
+    }
+
+    public void ReRollDelivery()
+    {
+        if (DeliveryStatus == deliveryStatus.NotActive)
+        {
+            destination = dropoffZones[Random.Range(0, dropoffZones.Count)];
+            GUI_destinationText.text = "Destination: " + destination.name;
+        }
+        else if (DeliveryStatus == deliveryStatus.Accepted)
+        {
+            Warnings.gameObject.SetActive(true);
+            Warnings.text = "You have Already Accepted the delivery.\nFind the parcel and deliver it.";
+            // StartCoroutine(Wait(7));
+        }
+        else if (DeliveryStatus == deliveryStatus.InProgress)
+        {
+            Warnings.gameObject.SetActive(true);
+            Warnings.text = "The delivery is already in progress.\nDeliver it to the correct house before starting a new one.";
+            // StartCoroutine(Wait(7));
+        }
+    }
+
+    public void RecieveDelivery()
+    {
+        deliveryActive = true;
+        UI_DestinationText = destination.name;
+        DeliveryStatus = deliveryStatus.InProgress;
+        Destroy(parcelInstance.gameObject);
+        IsHoldingParcel = true;
+    }
+
+    // IEnumerator Wait(float waitTime)
+    // {   
+    //     Debug.Log("hide success");
+    //     yield return new WaitForSeconds(waitTime);
+    //     Debug.Log("hide success");
+    //     Warnings.gameObject.SetActive(false);
+    // }
+
+    public void DropoffParcel(PlayerController playerController)
+    {
+        deliveryActive = false;
+        IsHoldingParcel = false;
+        score++;
+        destination = pickupZones[Random.Range(0, pickupZones.Count)];
+        UI_DestinationText = destination.name;
+        DeliveryStatus = deliveryStatus.NotActive;
+        playerController.HidePickupParcelText();
+        if (playerController.parcelInstance != null)
+        {
+            Destroy(playerController.parcelInstance);
+            playerController.parcelInstance = null;
+        }
     }
 
 }

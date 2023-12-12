@@ -44,6 +44,8 @@ public class SimpleCarController : MonoBehaviour
                 { //currently not working. might remove//
                     axleInfo.leftWheel.motorTorque = 0;
                     axleInfo.rightWheel.motorTorque = 0;
+                    axleInfo.leftWheel.brakeTorque = Mathf.Infinity;
+                    axleInfo.rightWheel.brakeTorque = Mathf.Infinity;
 
                 }
                 ApplyLocalPositionToVisuals(axleInfo.leftWheel);
