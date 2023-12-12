@@ -12,6 +12,7 @@ public class parcelScript : MonoBehaviour
     void Start()
     {
         playerController = FindObjectOfType<PlayerController>();
+        deliveryManager = FindObjectOfType<DeliveryManager>();
     }
 
 
@@ -23,6 +24,7 @@ public class parcelScript : MonoBehaviour
         {
             playerController = FindObjectOfType<PlayerController>();
         }
+        
     }
         
     void OnTriggerEnter(Collider other)

@@ -6169,6 +6169,8 @@ MonoBehaviour:
   pauseScript: {fileID: 1834582580}
   settings: {fileID: 2034429824}
   IsHoldingParcel: 0
+  playerController: {fileID: 0}
+  destination: {fileID: 0}
   ParcelSpawn: {fileID: 1125420527}
   parcelPrefab: {fileID: 9169737833710865497, guid: 4cce7fe539ed0db46a0ca71f89951672, type: 3}
   parcelInstance: {fileID: 0}
@@ -6545,8 +6547,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8782538, y: 2.0585363, z: 1.8697014}
-  m_Center: {x: -1.2333125e-16, y: 0.529268, z: 0.4348507}
+  m_Size: {x: 1.8782538, y: 0.5193821, z: 1.8697014}
+  m_Center: {x: 5.599723e-17, y: -0.2403089, z: 0.4348507}
 --- !u!1001 &852202365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8224,13 +8226,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93ef72734639ac34f99a87b69ba051d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupPoints:
-  - {fileID: 0}
-  dropoffPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  car: {fileID: 0}
-  parcel: {fileID: 8718200987198740419, guid: a3408ca02b46d524199c2de952a7b551, type: 3}
+  parcelPrefab: {fileID: 0}
+  parcelInstance: {fileID: 0}
+  deliveryManager: {fileID: 0}
+  playerController: {fileID: 0}
 --- !u!4 &1030791286
 Transform:
   m_ObjectHideFlags: 0
@@ -13781,8 +13780,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8782538, y: 2.0585363, z: 1.8697014}
-  m_Center: {x: -1.2333125e-16, y: 0.529268, z: 0.4348507}
+  m_Size: {x: 1.8782538, y: 0.36218455, z: 1.8697014}
+  m_Center: {x: 0.00000000776701, y: -0.31890768, z: 0.43485066}
 --- !u!1001 &1652413442
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -59,7 +59,6 @@ public class DeliveryManager : MonoBehaviour
     {
         UpdateUI();
         checkForClose();
-        Debug.Log(destination);
         if (playerController == null)
         {
             playerController = FindObjectOfType<PlayerController>();

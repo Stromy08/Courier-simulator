@@ -434,3 +434,13 @@ ChangeLog:
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
         • parcel doesnt get dropped off properly
+
+0.0.3.3
+    •parcel delivery fixed
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it

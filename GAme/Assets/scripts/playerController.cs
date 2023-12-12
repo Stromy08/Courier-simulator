@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
             PickupParcelText.SetActive(false);
         }
     }
+    
 
     void OpenDeliveryMenu()
     {
