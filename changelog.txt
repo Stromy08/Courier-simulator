@@ -459,3 +459,14 @@ ChangeLog:
         • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
+
+0.1.1.0
+    •fixed day/night cycle length
+    •fixed settings enable/disable
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it

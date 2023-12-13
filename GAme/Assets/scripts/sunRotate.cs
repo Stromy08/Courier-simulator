@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class sunRotate : MonoBehaviour
 {
-    [SerializeField] float sunRotationAmount;
-    float sunRotation;
+
+    public Transform sunTransform;
+    [SerializeField] float dayLength = 120f;
+    public Material skyboxMaterial;
 
 
     void Update()
     {
-        sunRotation = sunRotationAmount * Time.deltaTime;
-        transform.Rotate(0, sunRotation, 0);
+        sunTransform.Rotate(new Vector3((Time.deltaTime / dayLength) * 360, 0, 0));
     }
     
 }

@@ -5290,7 +5290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdd8b8fb913dbb4fa8d0991ffdded16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunRotationAmount: 0.8
+  sunTransform: {fileID: 0}
+  dayLength: 120
+  skyboxMaterial: {fileID: 0}
 --- !u!1 &719554325
 GameObject:
   m_ObjectHideFlags: 0
@@ -17031,7 +17033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2034429823
 RectTransform:
   m_ObjectHideFlags: 0
