@@ -490,3 +490,14 @@ ChangeLog:
         • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
+
+0.1.3.0
+    •added stamina bar
+    •fixed settings closing upon key escape being pressed
+
+        ISSUES
+        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
+          and making it bright instead of dark at night
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it

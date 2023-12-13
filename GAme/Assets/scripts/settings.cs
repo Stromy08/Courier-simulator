@@ -20,7 +20,10 @@ public class settings : MonoBehaviour
         pressEscape();
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        pressEscape();
+    }
 
     public void pressEscape()
     {

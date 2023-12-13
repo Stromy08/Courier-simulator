@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,11 +14,17 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 3f;
     Vector3 velocity;
     bool isSprinting;
+    [SerializeField] float maxStamina = 100f; // Maximum stamina
+    [SerializeField] public float staminaRecoveryRate = 15f; // Rate at which stamina recovers
+    [SerializeField] public float staminaDrainRate = 5f; // Rate at which stamina drains while sprinting
+    [SerializeField] private float currentStamina; // Current stamina
+
 
     [Header("Define objects ")]
     public Transform cam;
     public GameObject player;
     public GameObject parcelPrefab;
+    public GameObject parcelInstance;
 
     [Header("Animations")]
     private Animator animator;
@@ -30,7 +37,8 @@ public class PlayerController : MonoBehaviour
     public GameObject FToEnterText;
     public GameObject FToTalkToNpcText;
     public GameObject PickupParcelText;
-    public GameObject parcelInstance;
+    public Image staminaBar;
+
 
     // zone states
     public enum IsInZone
@@ -166,6 +174,8 @@ public class PlayerController : MonoBehaviour
         
     }
 
+
+
     void PlayerWalk()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -186,18 +196,35 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("Jump");
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && currentStamina > 0 && direction.magnitude >= 0.1f)
         {
             isSprinting = true;
             animator.SetBool("IsWalking", direction.magnitude >= 0.1f);
         }
-        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        else if (Input.GetKeyUp(KeyCode.LeftShift) || currentStamina <= 0 || direction.magnitude <= 0.1f)
         {
             isSprinting = false;
         }
         float speedToUse = isSprinting ? sprintSpeed : speed;
-        // set animatior sprinting
+        // set animator sprinting
         animator.SetBool("IsSprinting", isSprinting);
+
+        // If the player is sprinting and has stamina left, drain stamina
+        if (isSprinting && currentStamina > 0)
+        {
+            currentStamina -= staminaDrainRate * Time.deltaTime;
+        }
+        // If the player is not sprinting and has less than max stamina, recover stamina
+        else if (!isSprinting && currentStamina < maxStamina)
+        {
+            currentStamina += staminaRecoveryRate * Time.deltaTime;
+        }
+
+        // Clamp current stamina between 0 and max stamina
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+
+        // Update the stamina bar fill amount
+        staminaBar.fillAmount = currentStamina / maxStamina;
 
         velocity.y += gravity * Time.deltaTime;
 
