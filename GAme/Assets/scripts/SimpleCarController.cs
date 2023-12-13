@@ -15,10 +15,14 @@ public class SimpleCarController : MonoBehaviour
 
     public gameManager gameManager;
 
+    bool toggleLightsBool;
+    [SerializeField] GameObject Headlights;
+
 
     void Start()
     {
-
+        toggleLightsBool = false;
+        Headlights.SetActive(toggleLightsBool);
     }
 
     public void FixedUpdate()
@@ -71,6 +75,7 @@ public class SimpleCarController : MonoBehaviour
     void Update()
     {
         UpdateSpeedometer();
+        toggleLights();
     }
 
     private void UpdateSpeedometer()
@@ -81,6 +86,14 @@ public class SimpleCarController : MonoBehaviour
         speedText.text = ((int)speed).ToString() + " km/h";
     }
 
+    void toggleLights()
+    {
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            toggleLightsBool = !toggleLightsBool;
+            Headlights.SetActive(toggleLightsBool);
+        }
+    }
 }
 
 [System.Serializable]
