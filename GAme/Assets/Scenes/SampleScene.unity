@@ -5290,7 +5290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cdd8b8fb913dbb4fa8d0991ffdded16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sunTransform: {fileID: 0}
+  sunTransform: {fileID: 705507995}
   dayLength: 120
   skyboxMaterial: {fileID: 0}
 --- !u!1 &719554325
