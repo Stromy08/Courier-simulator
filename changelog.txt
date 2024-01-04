@@ -475,8 +475,6 @@ ChangeLog:
     •added more dropoff points
 
         ISSUES
-        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
-          and making it bright instead of dark at night
         • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
@@ -485,8 +483,6 @@ ChangeLog:
     •added sprinting
 
         ISSUES
-        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
-          and making it bright instead of dark at night
         • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
@@ -496,8 +492,6 @@ ChangeLog:
     •fixed settings closing upon key escape being pressed
 
         ISSUES
-        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
-          and making it bright instead of dark at night
         • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
@@ -506,8 +500,15 @@ ChangeLog:
     •added headlights to car
 
         ISSUES
-        • lighting must be fixed as during the night the sun shines below the world causing it to illuminate the ceiling of the tunnel
-          and making it bright instead of dark at night
         • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
+
+0.1.4
+    •added sounds
+
+        ISSUES
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+        • music doesnt play when paused
