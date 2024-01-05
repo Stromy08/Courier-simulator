@@ -13,6 +13,9 @@ public class SimpleCarController : MonoBehaviour
     public TMP_Text speedText;
     public float maxSpeed = 50f;
 
+    public GameObject car;
+    private AudioListener audioListener;
+
     public gameManager gameManager;
 
     bool toggleLightsBool;
@@ -23,12 +26,14 @@ public class SimpleCarController : MonoBehaviour
     {
         toggleLightsBool = false;
         Headlights.SetActive(toggleLightsBool);
+        audioListener = car.GetComponent<AudioListener>();
     }
 
     public void FixedUpdate()
     {
         if (gameManager.IsDriving)
         {
+            audioListener.enabled = true;
             float motor = maxMotorTorque * Input.GetAxis("Vertical");
             float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
 
@@ -55,6 +60,10 @@ public class SimpleCarController : MonoBehaviour
                 ApplyLocalPositionToVisuals(axleInfo.leftWheel);
                 ApplyLocalPositionToVisuals(axleInfo.rightWheel);
             }
+        }
+        else
+        {
+            audioListener.enabled = false;
         }
     }
 

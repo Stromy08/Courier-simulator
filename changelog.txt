@@ -522,3 +522,13 @@ ChangeLog:
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
         • music doesnt play when paused
+
+0.1.4.2
+    •added new map regions
+    •added sounds to certain elements
+
+        ISSUES
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+        • music doesnt play when paused

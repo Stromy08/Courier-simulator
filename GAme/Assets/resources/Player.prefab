@@ -727,6 +727,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a0838eadc56c6a249a31a786a67cce2b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7337947582127658794}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a0838eadc56c6a249a31a786a67cce2b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6691725340615634288}
   m_SourcePrefab: {fileID: 100100000, guid: a0838eadc56c6a249a31a786a67cce2b, type: 3}
 --- !u!4 &2374757339085348873 stripped
 Transform:
@@ -845,3 +848,11 @@ MonoBehaviour:
   staminaBar: {fileID: 3341394716216299491}
   currentZone: 0
   controller: {fileID: 5088569519903539515}
+--- !u!81 &6691725340615634288
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3152244429027244723}
+  m_Enabled: 1

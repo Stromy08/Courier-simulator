@@ -1,5 +1,5 @@
 # Courier-simulator
- ![Static Badge](https://img.shields.io/badge/version-0.1.3.1-green?style=for-the-badge) <br>
+ ![Static Badge](https://img.shields.io/badge/version-0.1.4.2-green?style=for-the-badge) <br>
  ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/Stromy08/Courier-simulator?style=flat-square&color=orange)     ![GitHub forks](https://img.shields.io/github/forks/Stromy08/Courier-simulator?style=flat-square&color=purple)
 
 
@@ -34,13 +34,11 @@
   https://youtu.be/rKYn-1XGjJ4
 
   ### To Do:
-     1. add a better map
-     4. add npc traffic
-     3. add shops
-     5. add upgradeable car
-     6. add better gui's
-     7. add better system for recieveing tasks
-
+      •add more buildings
+      •add skybox
+      •add npcs
+      •add more nature (trees etc)
+      •fix pause music
 
 
 
