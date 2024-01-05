@@ -512,3 +512,13 @@ ChangeLog:
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
         • music doesnt play when paused
+
+0.1.4.1
+    •added seperate ambient sounds for night time
+    •now sounds fade with distance
+
+        ISSUES
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+        • music doesnt play when paused

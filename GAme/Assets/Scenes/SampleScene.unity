@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 18317907}
   - component: {fileID: 18317906}
+  - component: {fileID: 18317908}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -160,10 +161,10 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 43.4
+  MaxDistance: 113.4
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -171,23 +172,32 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.72052944
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -2.3534753
+      outSlope: -2.3534753
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7657353
+      value: 0.31826782
+      inSlope: -1.6478528
+      outSlope: -1.6478528
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.34070528
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.42524263
+      outSlope: -0.42524263
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -196,7 +206,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -251,6 +261,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &18317908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18317905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4a044742a1667488568de241287588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sunRotate: {fileID: 705507996}
+  day: {fileID: 8300000, guid: 92a20e4f23c97014ca8d9db322376fae, type: 3}
+  night: {fileID: 8300000, guid: ae4b58c918a85ab4baa99db50a45d0a8, type: 3}
+  audioSource: {fileID: 18317906}
+  currenttime: 0
 --- !u!1001 &43431447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5518,6 +5545,7 @@ MonoBehaviour:
   sunTransform: {fileID: 705507995}
   dayLength: 120
   skyboxMaterial: {fileID: 0}
+  timePassed: 0
 --- !u!1 &719554325
 GameObject:
   m_ObjectHideFlags: 0
@@ -11932,8 +11960,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
+  MinDistance: 13.75
+  MaxDistance: 42.72
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -11968,7 +11996,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
