@@ -20,6 +20,7 @@ Windy day street: https://freesound.org/people/szegvari/sounds/517904/ <br>
 Car interion rain: https://freesound.org/people/InspectorJ/sounds/400402/ <br>
 Garden: https://freesound.org/people/earthsounds/sounds/101504/ <br>
 City sounds: https://freesound.org/people/forfie/sounds/319336/ <br>
+Cafe outdoors music: https://freesound.org/people/Nimlos/sounds/524629/ <br>
 
 ## Miscellanious:
 Train horn: https://freesound.org/people/NETR_si/sounds/574638/ <br>
