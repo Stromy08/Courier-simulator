@@ -533,10 +533,20 @@ ChangeLog:
         • car keeps going forever when player leaves it
         • music doesnt play when paused
 
-0.1.4.2
+0.1.4.3
     •begun work on garden
     •added more assets (water, nature)
 
+        ISSUES
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+        • music doesnt play when paused
+
+0.1.4.4
+    •fixed grass texture
+    •added shop (no items yet)
+    
         ISSUES
         • camera clips through buildings
         • car doesnt have brakes (handbrake, and normal brakes)

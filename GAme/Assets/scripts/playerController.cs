@@ -26,19 +26,22 @@ public class PlayerController : MonoBehaviour
     public GameObject parcelPrefab;
     public GameObject parcelInstance;
 
+
     [Header("Animations")]
     private Animator animator;
 
     [Header("Scripts")]
     public gameManager gameManager;
     public DeliveryManager deliveryManager;
+    public store store;
 
     [Header("UI")]
     public GameObject FToEnterText;
     public GameObject FToTalkToNpcText;
     public GameObject PickupParcelText;
+    public GameObject OpenStoreText;
     public Image staminaBar;
-
+ 
 
     // zone states
     public enum IsInZone
@@ -46,7 +49,8 @@ public class PlayerController : MonoBehaviour
         none,
         CarEnterance,
         DeliveryNpc,
-        ParcelEntity
+        ParcelEntity,
+        Shop
     }
     [Header("Is in hitbox bools")]
     public IsInZone currentZone;
@@ -63,11 +67,17 @@ public class PlayerController : MonoBehaviour
         {
             deliveryManager = deliveryManagerObject.GetComponent<DeliveryManager>();
         }
+        if (store == null)
+        {
+            store = FindObjectOfType<store>();
+        }
+
 
         deliveryManager = FindObjectOfType<DeliveryManager>();
         cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         FToTalkToNpcText.SetActive(false);
         PickupParcelText.SetActive(false);
+        OpenStoreText.SetActive(false);
 
     }
 
@@ -78,6 +88,7 @@ public class PlayerController : MonoBehaviour
 
         DropoffParcel();
         PickupParcel();
+        Openstore();
     }
 
     void OnTriggerEnter(Collider other)
@@ -99,6 +110,11 @@ public class PlayerController : MonoBehaviour
             currentZone = IsInZone.ParcelEntity;
             PickupParcelText.SetActive(true);
         }
+        if (other.gameObject.tag == "store")
+        {
+            currentZone = IsInZone.Shop;
+            OpenStoreText.SetActive(true);
+        }
     }
     void OnTriggerExit(Collider other)
     {
@@ -118,6 +134,11 @@ public class PlayerController : MonoBehaviour
         {
             currentZone = IsInZone.none;
             PickupParcelText.SetActive(false);
+        }
+        if (other.gameObject.tag == "store")
+        {
+            currentZone = IsInZone.Shop;
+            OpenStoreText.SetActive(false);
         }
     }
     
@@ -174,7 +195,17 @@ public class PlayerController : MonoBehaviour
         
     }
 
-
+    void Openstore()
+    {
+        if (currentZone == IsInZone.Shop)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                store.openShop();
+                OpenStoreText.SetActive(false);
+            }
+        }
+    }
 
     void PlayerWalk()
     {
