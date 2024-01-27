@@ -9,6 +9,8 @@ public class store : MonoBehaviour
     public GameObject miscMenu;
     public GameObject shopUI;
     public pauseMenu pauseScript;
+    public SimpleCarController CarController;
+    public DeliveryManager deliveryManager;
 
     void Start()
     {
@@ -65,6 +67,13 @@ public class store : MonoBehaviour
     {
         pauseScript.paused=false;
         shopUI.SetActive(false);
+    }
+
+    //UPGRADES//
+    public void SpeedIncrease()
+    {
+        CarController.maxSpeed = CarController.maxSpeed + 5;
+        deliveryManager.score = deliveryManager.score - 1;
     }
 
 }

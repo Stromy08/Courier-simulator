@@ -552,3 +552,17 @@ ChangeLog:
         • car doesnt have brakes (handbrake, and normal brakes)
         • car keeps going forever when player leaves it
         • music doesnt play when paused
+
+0.1.4.5
+    •added an item to shop
+    •fixed added more foliage and hills
+
+        ISSUES
+        • camera clips through buildings
+        • car doesnt have brakes (handbrake, and normal brakes)
+        • car keeps going forever when player leaves it
+        • music doesnt play when paused
+        • strange post processing artifact with spinning wheels
+        • grass is too saturated
+        • ugly skybox
+        • sounds can be heared from everywhere

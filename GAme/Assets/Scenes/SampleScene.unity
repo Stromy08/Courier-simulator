@@ -581,7 +581,8 @@ MonoBehaviour:
   miscMenu: {fileID: 1300805497}
   shopUI: {fileID: 1850454426}
   pauseScript: {fileID: 1834582580}
-  PlayerController: {fileID: 0}
+  CarController: {fileID: 1303181557}
+  deliveryManager: {fileID: 819935352}
 --- !u!1 &54640062
 GameObject:
   m_ObjectHideFlags: 3
@@ -8432,6 +8433,7 @@ MonoBehaviour:
   GUI_destinationSelection: {fileID: 750625446}
   Warnings: {fileID: 2146591519}
   deliveryActive: 0
+  score: 0
   pauseScript: {fileID: 1834582580}
   settings: {fileID: 2034429824}
   IsHoldingParcel: 0
@@ -8461,7 +8463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819935351}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 210.72339, y: 2.487313, z: 2.1121175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -15374,6 +15376,17 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303181544}
   m_Enabled: 1
+--- !u!114 &1303181557 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2390139788188086360, guid: d1816f1a81d0f554ba718512703ae570, type: 3}
+  m_PrefabInstance: {fileID: 1722828438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303181544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7edc8f88f98a1364483882ff43fbe6d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1303499418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21143,21 +21156,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DeliveryManager, Assembly-CSharp
-        m_MethodName: payScore
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: car1, Assembly-CSharp
-        m_MethodName: maxSpeedPlusFive
+      - m_Target: {fileID: 50548053}
+        m_TargetAssemblyTypeName: store, Assembly-CSharp
+        m_MethodName: SpeedIncrease
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23490,8 +23491,8 @@ SceneRoots:
   - {fileID: 214766374}
   - {fileID: 680509329}
   - {fileID: 1908773619}
-  - {fileID: 247426348}
   - {fileID: 819935353}
+  - {fileID: 247426348}
   - {fileID: 1425052960}
   - {fileID: 1722828438}
   - {fileID: 1934112143}

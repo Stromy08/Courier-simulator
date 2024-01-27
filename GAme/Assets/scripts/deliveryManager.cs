@@ -24,7 +24,7 @@ public class DeliveryManager : MonoBehaviour
     }
     public deliveryStatus DeliveryStatus { get; set; }
 
-    int score;
+    public int score;
     string UI_DestinationText;
     public pauseMenu pauseScript;
     public settings settings;
